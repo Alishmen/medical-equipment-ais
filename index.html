@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АИС "Управление Медицинским оборудованием"</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="media.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>АИС "Управление Медицинским оборудованием"</h1>
+        </header>
+        
+        <main class="main-content">
+            <!-- Вкладки -->
+            <div class="tabs-container">
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="ris">РИС</button>
+                    <button class="tab-button" data-tab="lis">ЛИС</button>
+                </div>
+                
+                <!-- Контент РИС -->
+                <div class="tab-content active" id="ris-content">
+                    <div class="ris-container">
+                        <!-- Левая часть - Список оборудования -->
+                        <div class="equipment-section">
+                            <div class="section-header">
+                                <h3 class="section-title">Медицинское оборудование</h3>
+                                <div class="filter-container">
+                                    <input type="text" id="equipmentFilter" placeholder="Поиск по оборудованию..." class="filter-input">
+                                    <button class="filter-button">🔍</button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-container">
+                                <table class="equipment-table">
+                                    <thead>
+                                        <tr>
+                                            <th>№</th>
+                                            <th>Больница</th>
+                                            <th>Производитель</th>
+                                            <th>Тип</th>
+                                            <th>Модель</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="equipmentTableBody">
+                                        <tr>
+                                            <td>001</td>
+                                            <td>ГКБ №3</td>
+                                            <td>Siemens</td>
+                                            <td>Рентген</td>
+                                            <td>Mobilett Mira Max</td>
+                                        </tr>
+                                        <tr>
+                                            <td>002</td>
+                                            <td>ГКБ №3</td>
+                                            <td>Siemens</td>
+                                            <td>Томограф</td>
+                                            <td>SOMATOM go.Top</td>
+                                        </tr>
+                                        <tr>
+                                            <td>003</td>
+                                            <td>ГКБ №5</td>
+                                            <td>Bemes</td>
+                                            <td>УЗИ</td>
+                                            <td>ACUSON NX3 Elite</td>
+                                        </tr>
+                                        <tr>
+                                            <td>004</td>
+                                            <td>ГКБ №5</td>
+                                            <td>Gioho3d</td>
+                                            <td>3D Сканер</td>
+                                            <td>3D Pro Max</td>
+                                        </tr>
+                                        <tr>
+                                            <td>005</td>
+                                            <td>ГКБ №7</td>
+                                            <td>Siemens</td>
+                                            <td>МРТ</td>
+                                            <td>MAGNETOM Vida</td>
+                                        </tr>
+                                        <tr>
+                                            <td>006</td>
+                                            <td>ГКБ №7</td>
+                                            <td>Bemes</td>
+                                            <td>ЭКГ</td>
+                                            <td>CardioTouch 3000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>007</td>
+                                            <td>ГКБ №1</td>
+                                            <td>Philips</td>
+                                            <td>УЗИ</td>
+                                            <td>EPIQ 7</td>
+                                        </tr>
+                                        <tr>
+                                            <td>008</td>
+                                            <td>ГКБ №1</td>
+                                            <td>GE Healthcare</td>
+                                            <td>МРТ</td>
+                                            <td>Signa Architect</td>
+                                        </tr>
+                                        <tr>
+                                            <td>009</td>
+                                            <td>ГКБ №2</td>
+                                            <td>Canon</td>
+                                            <td>Рентген</td>
+                                            <td>CXDI-701C</td>
+                                        </tr>
+                                        <tr>
+                                            <td>010</td>
+                                            <td>ГКБ №2</td>
+                                            <td>Mindray</td>
+                                            <td>ЭКГ</td>
+                                            <td>BeneHeart R3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>011</td>
+                                            <td>ГКБ №4</td>
+                                            <td>Shimadzu</td>
+                                            <td>Рентген</td>
+                                            <td>MobileDaRt Evolution</td>
+                                        </tr>
+                                        <tr>
+                                            <td>012</td>
+                                            <td>ГКБ №4</td>
+                                            <td>Hitachi</td>
+                                            <td>УЗИ</td>
+                                            <td>ARIETTA 850</td>
+                                        </tr>
+                                        <tr>
+                                            <td>013</td>
+                                            <td>ГКБ №6</td>
+                                            <td>Fujifilm</td>
+                                            <td>Маммограф</td>
+                                            <td>AMULET Innovality</td>
+                                        </tr>
+                                        <tr>
+                                            <td>014</td>
+                                            <td>ГКБ №6</td>
+                                            <td>Carestream</td>
+                                            <td>Рентген</td>
+                                            <td>DRX-Revolution</td>
+                                        </tr>
+                                        <tr>
+                                            <td>015</td>
+                                            <td>ГКБ №8</td>
+                                            <td>Esaote</td>
+                                            <td>УЗИ</td>
+                                            <td>MyLab 9</td>
+                                        </tr>
+                                        <tr>
+                                            <td>016</td>
+                                            <td>ГКБ №8</td>
+                                            <td>Medtronic</td>
+                                            <td>Дефибриллятор</td>
+                                            <td>LIFEPAK 15</td>
+                                        </tr>
+                                        <tr>
+                                            <td>017</td>
+                                            <td>ГКБ №9</td>
+                                            <td>Ziehm</td>
+                                            <td>С-дуга</td>
+                                            <td>Vision RFD 3D</td>
+                                        </tr>
+                                        <tr>
+                                            <td>018</td>
+                                            <td>ГКБ №9</td>
+                                            <td>Stryker</td>
+                                            <td>Эндоскоп</td>
+                                            <td>1688 AIM HD</td>
+                                        </tr>
+                                        <tr>
+                                            <td>019</td>
+                                            <td>ГКБ №10</td>
+                                            <td>Olympus</td>
+                                            <td>Эндоскоп</td>
+                                            <td>EVIS EXERA III</td>
+                                        </tr>
+                                        <tr>
+                                            <td>020</td>
+                                            <td>ГКБ №10</td>
+                                            <td>Drager</td>
+                                            <td>Аппарат ИВЛ</td>
+                                            <td>Babylog VN500</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Правая часть - Детали оборудования -->
+                        <div class="details-section">
+                            <div class="details-placeholder" id="noSelection">
+                                <h3>Детали оборудования</h3>
+                                <p>Выберите оборудование для просмотра деталей</p>
+                            </div>
+                            
+                            <div class="equipment-passport" id="equipmentPassport" style="display: none;">
+                                <div class="passport-header">
+                                    <h3>Паспорт оборудования</h3>
+                                    <div class="equipment-status">
+                                        <span class="status-indicator active"></span>
+                                        <span class="status-text">В эксплуатации</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="passport-content">
+                                    <div class="passport-section">
+                                        <h4>Основная информация</h4>
+                                        <div class="info-grid">
+                                            <div class="info-item">
+                                                <label>МО:</label>
+                                                <span id="equipmentMO">-</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <label>Serial Number:</label>
+                                                <span id="equipmentSerial">-</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <label>ИНВ-№:</label>
+                                                <span id="equipmentInv">-</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <label>Расположение:</label>
+                                                <span id="equipmentLocation">-</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <label>Категория:</label>
+                                                <span id="equipmentCategory">-</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <label>Рег. удостоверение:</label>
+                                                <span id="equipmentRegistration">-</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="passport-section">
+                                        <h4>Даты</h4>
+                                        <div class="info-grid">
+                                            <div class="info-item">
+                                                <label>Дата ввода в эксплуатацию:</label>
+                                                <span id="equipmentStartDate">-</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <label>Срок эксплуатации:</label>
+                                                <span id="equipmentExpirationDate">-</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <label>Продление срока эксплуатации:</label>
+                                                <span id="equipmentExtensionDate">-</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <label>Дата тех. обслуживания:</label>
+                                                <span id="equipmentServiceDate">-</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <label>Дата след. тех. обслуживания:</label>
+                                                <span id="equipmentNextServiceDate">-</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <label>Дата метрологической поверки:</label>
+                                                <span id="equipmentMetrologyDate">-</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <label>Дата след. метрологической поверки:</label>
+                                                <span id="equipmentNextMetrologyDate">-</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="passport-actions">
+                                        <button class="action-btn primary" id="journalBtn">
+                                            <span class="btn-icon">📋</span>
+                                            Журнал
+                                        </button>
+                                        <button class="action-btn secondary" id="materialsBtn">
+                                            <span class="btn-icon">📦</span>
+                                            Расходные материалы
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Контент ЛИС -->
+                <div class="tab-content" id="lis-content">
+                    <div class="ris-container">
+                        <!-- Левая часть - Список оборудования -->
+                        <div class="equipment-section">
+                            <div class="section-header">
+                                <h3 class="section-title">Лабораторное оборудование</h3>
+                                <div class="filter-container">
+                                    <input type="text" id="lisEquipmentFilter" placeholder="Поиск по оборудованию..." class="filter-input">
+                                    <button class="filter-button">🔍</button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-container">
+                                <table class="equipment-table">
+                                    <thead>
+                                        <tr>
+                                            <th>№</th>
+                                            <th>Больница</th>
+                                            <th>Производитель</th>
+                                            <th>Тип</th>
+                                            <th>Модель</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="lisEquipmentTableBody">
+                                        <tr>
+                                            <td>L001</td>
+                                            <td>ГКБ №3</td>
+                                            <td>Alisei</td>
+                                            <td>Анализатор</td>
+                                            <td>Alisei 2000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>L002</td>
+                                            <td>ГКБ №3</td>
+                                            <td>Alisei</td>
+                                            <td>Центрифуга</td>
+                                            <td>Alisei Centrifuge Pro</td>
+                                        </tr>
+                                        <tr>
+                                            <td>L003</td>
+                                            <td>ГКБ №5</td>
+                                            <td>Multiskan</td>
+                                            <td>Сканер</td>
+                                            <td>Multiskan FC</td>
+                                        </tr>
+                                        <tr>
+                                            <td>L004</td>
+                                            <td>ГКБ №5</td>
+                                            <td>Multiskan</td>
+                                            <td>Микропланшет</td>
+                                            <td>Multiskan Sky</td>
+                                        </tr>
+                                        <tr>
+                                            <td>L005</td>
+                                            <td>ГКБ №7</td>
+                                            <td>Biochorm</td>
+                                            <td>Анализатор</td>
+                                            <td>Biochorm 3000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>L006</td>
+                                            <td>ГКБ №7</td>
+                                            <td>Biochorm</td>
+                                            <td>Иммуноанализатор</td>
+                                            <td>Biochorm ELISA</td>
+                                        </tr>
+                                        <tr>
+                                            <td>L007</td>
+                                            <td>ГКБ №1</td>
+                                            <td>Alisei</td>
+                                            <td>Гематолог</td>
+                                            <td>Alisei Hematology</td>
+                                        </tr>
+                                        <tr>
+                                            <td>L008</td>
+                                            <td>ГКБ №1</td>
+                                            <td>Multiskan</td>
+                                            <td>Флуориметр</td>
+                                            <td>Multiskan Luminescence</td>
+                                        </tr>
+                                        <tr>
+                                            <td>L009</td>
+                                            <td>ГКБ №2</td>
+                                            <td>Biochorm</td>
+                                            <td>Коагулометр</td>
+                                            <td>Biochorm Coag</td>
+                                        </tr>
+                                        <tr>
+                                            <td>L010</td>
+                                            <td>ГКБ №2</td>
+                                            <td>Alisei</td>
+                                            <td>Микроскоп</td>
+                                            <td>Alisei Micro Pro</td>
+                                        </tr>
+                                        <tr>
+                                            <td>L011</td>
+                                            <td>ГКБ №4</td>
+                                            <td>Multiskan</td>
+                                            <td>Спектрофотометр</td>
+                                            <td>Multiskan Spectrum</td>
+                                        </tr>
+                                        <tr>
+                                            <td>L012</td>
+                                            <td>ГКБ №4</td>
+                                            <td>Biochorm</td>
+                                            <td>Анализатор мочи</td>
+                                            <td>Biochorm Urine</td>
+                                        </tr>
+                                        <tr>
+                                            <td>L013</td>
+                                            <td>ГКБ №6</td>
+                                            <td>Alisei</td>
+                                            <td>Инкубатор</td>
+                                            <td>Alisei Incubator</td>
+                                        </tr>
+                                        <tr>
+                                            <td>L014</td>
+                                            <td>ГКБ №6</td>
+                                            <td>Multiskan</td>
+                                            <td>Термоциклер</td>
+                                            <td>Multiskan PCR</td>
+                                        </tr>
+                                        <tr>
+                                            <td>L015</td>
+                                            <td>ГКБ №8</td>
+                                            <td>Biochorm</td>
+                                            <td>Газоанализатор</td>
+                                            <td>Biochorm Gas</td>
+                                        </tr>
+                                        <tr>
+                                            <td>L016</td>
+                                            <td>ГКБ №8</td>
+                                            <td>Alisei</td>
+                                            <td>Автоклав</td>
+                                            <td>Alisei Autoclave</td>
+                                        </tr>
+                                        <tr>
+                                            <td>L017</td>
+                                            <td>ГКБ №9</td>
+                                            <td>Multiskan</td>
+                                            <td>Денситометр</td>
+                                            <td>Multiskan Densitometer</td>
+                                        </tr>
+                                        <tr>
+                                            <td>L018</td>
+                                            <td>ГКБ №9</td>
+                                            <td>Biochorm</td>
+                                            <td>pH-метр</td>
+                                            <td>Biochorm pH Pro</td>
+                                        </tr>
+                                        <tr>
+                                            <td>L019</td>
+                                            <td>ГКБ №10</td>
+                                            <td>Alisei</td>
+                                            <td>Весы</td>
+                                            <td>Alisei Balance</td>
+                                        </tr>
+                                        <tr>
+                                            <td>L020</td>
+                                            <td>ГКБ №10</td>
+                                            <td>Multiskan</td>
+                                            <td>Вискозиметр</td>
+                                            <td>Multiskan Viscosity</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Правая часть - Детали оборудования -->
+                        <div class="details-section">
+                            <div class="details-placeholder" id="lisNoSelection">
+                                <h3>Детали оборудования</h3>
+                                <p>Выберите оборудование для просмотра деталей</p>
+                            </div>
+                            
+                            <div class="equipment-passport" id="lisEquipmentPassport" style="display: none;">
+                                <div class="passport-header">
+                                    <h3>Паспорт оборудования</h3>
+                                    <div class="equipment-status">
+                                        <span class="status-indicator active"></span>
+                                        <span class="status-text">В эксплуатации</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="passport-content">
+                                    <div class="passport-section">
+                                        <h4>Основная информация</h4>
+                                        <div class="info-grid">
+                                            <div class="info-item">
+                                                <label>МО:</label>
+                                                <span id="lisEquipmentMO">-</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <label>Serial Number:</label>
+                                                <span id="lisEquipmentSerial">-</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <label>ИНВ-№:</label>
+                                                <span id="lisEquipmentInv">-</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <label>Расположение:</label>
+                                                <span id="lisEquipmentLocation">-</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <label>Категория:</label>
+                                                <span id="lisEquipmentCategory">-</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <label>Рег. удостоверение:</label>
+                                                <span id="lisEquipmentRegistration">-</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="passport-section">
+                                        <h4>Даты</h4>
+                                        <div class="info-grid">
+                                            <div class="info-item">
+                                                <label>Дата ввода в эксплуатацию:</label>
+                                                <span id="lisEquipmentStartDate">-</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <label>Срок эксплуатации:</label>
+                                                <span id="lisEquipmentExpirationDate">-</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <label>Продление срока эксплуатации:</label>
+                                                <span id="lisEquipmentExtensionDate">-</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <label>Дата тех. обслуживания:</label>
+                                                <span id="lisEquipmentServiceDate">-</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <label>Дата след. тех. обслуживания:</label>
+                                                <span id="lisEquipmentNextServiceDate">-</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <label>Дата метрологической поверки:</label>
+                                                <span id="lisEquipmentMetrologyDate">-</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <label>Дата след. метрологической поверки:</label>
+                                                <span id="lisEquipmentNextMetrologyDate">-</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="passport-actions">
+                                        <button class="action-btn primary" id="lisJournalBtn">
+                                            <span class="btn-icon">📋</span>
+                                            Журнал
+                                        </button>
+                                        <button class="action-btn secondary" id="lisMaterialsBtn">
+                                            <span class="btn-icon">📦</span>
+                                            Расходные материалы
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Республиканский медицинский информационно-аналитический центр</p>
+        </div>
+    </footer>
+
+    <!-- Модальное окно Журнал -->
+    <div id="journalModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Журнал оборудования</h2>
+                <span class="close" onclick="closeModal('journalModal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-tabs">
+                    <button class="modal-tab active" data-tab="history">История обслуживания</button>
+                    <button class="modal-tab" data-tab="breakdowns">Журнал поломок</button>
+                    <button class="modal-tab" data-tab="schedule">График обслуживания</button>
+                    <button class="modal-tab" data-tab="reports">Отчеты по работе</button>
+                    <button class="modal-tab" data-tab="documents">Документы</button>
+                    <button class="modal-tab" data-tab="notifications">Уведомления</button>
+                </div>
+                
+                <div class="modal-tab-content">
+                    <!-- История обслуживания -->
+                    <div class="tab-panel active" id="history-panel">
+                        <h3>История обслуживания</h3>
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Дата</th>
+                                        <th>Тип ТО</th>
+                                        <th>Исполнитель</th>
+                                        <th>Замечания</th>
+                                        <th>Статус</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>20.03.2023</td>
+                                        <td>Плановое ТО</td>
+                                        <td>Иванов И.И.</td>
+                                        <td>Замена фильтров</td>
+                                        <td><span class="status completed">Выполнено</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>15.06.2023</td>
+                                        <td>Внеплановое</td>
+                                        <td>Петров П.П.</td>
+                                        <td>Ремонт блока питания</td>
+                                        <span class="status completed">Выполнено</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Журнал поломок -->
+                    <div class="tab-panel" id="breakdowns-panel">
+                        <h3>Журнал поломок</h3>
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Дата поломки</th>
+                                        <th>Описание</th>
+                                        <th>Причина</th>
+                                        <th>Время ремонта</th>
+                                        <th>Статус</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>10.05.2023</td>
+                                        <td>Не включается</td>
+                                        <td>Неисправность блока питания</td>
+                                        <td>2 часа</td>
+                                        <td><span class="status completed">Устранено</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- График обслуживания -->
+                    <div class="tab-panel" id="schedule-panel">
+                        <h3>График обслуживания</h3>
+                        <div class="calendar-placeholder">
+                            <p>📅 Календарь с плановыми и фактическими датами ТО</p>
+                            <p>Здесь будет интерактивный календарь</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Отчеты по работе -->
+                    <div class="tab-panel" id="reports-panel">
+                        <h3>Отчеты по работе</h3>
+                        <div class="reports-grid">
+                            <div class="report-card">
+                                <h4>Статистика использования</h4>
+                                <p>Время работы: 95%</p>
+                                <p>Время простоя: 5%</p>
+                            </div>
+                            <div class="report-card">
+                                <h4>Эффективность</h4>
+                                <p>Коэффициент готовности: 0.98</p>
+                                <p>Среднее время ремонта: 4 часа</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Документы -->
+                    <div class="tab-panel" id="documents-panel">
+                        <h3>Документы</h3>
+                        <div class="documents-list">
+                            <div class="document-item">
+                                <span class="doc-icon">📄</span>
+                                <span>Акт ТО от 20.03.2023</span>
+                                <button class="btn-small">Скачать</button>
+                            </div>
+                            <div class="document-item">
+                                <span class="doc-icon">📷</span>
+                                <span>Фото состояния оборудования</span>
+                                <button class="btn-small">Просмотр</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Уведомления -->
+                    <div class="tab-panel" id="notifications-panel">
+                        <h3>Уведомления</h3>
+                        <div class="notifications-list">
+                            <div class="notification-item">
+                                <span class="notification-icon">⚠️</span>
+                                <div class="notification-content">
+                                    <p>Близится срок планового ТО</p>
+                                    <small>Осталось 5 дней</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно Расходные материалы -->
+    <div id="materialsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Расходные материалы</h2>
+                <span class="close" onclick="closeModal('materialsModal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-tabs">
+                    <button class="modal-tab active" data-tab="catalog">Список расходников</button>
+                    <button class="modal-tab" data-tab="stock">Остатки на складе</button>
+                    <button class="modal-tab" data-tab="consumption">История расходования</button>
+                    <button class="modal-tab" data-tab="orders">Заявки на закупку</button>
+                    <button class="modal-tab" data-tab="suppliers">Поставщики</button>
+                    <button class="modal-tab" data-tab="writeoff">Списание материалов</button>
+                </div>
+                
+                <div class="modal-tab-content">
+                    <!-- Список расходников -->
+                    <div class="tab-panel active" id="catalog-panel">
+                        <h3>Список расходников</h3>
+                        <div class="filter-section">
+                            <input type="text" placeholder="Поиск по названию..." class="filter-input">
+                            <select class="filter-select">
+                                <option>Все категории</option>
+                                <option>Фильтры</option>
+                                <option>Реагенты</option>
+                                <option>Инструменты</option>
+                            </select>
+                        </div>
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Название</th>
+                                        <th>Артикул</th>
+                                        <th>Категория</th>
+                                        <th>Ед.изм.</th>
+                                        <th>Цена</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Фильтр воздушный</td>
+                                        <td>FIL-001</td>
+                                        <td>Фильтры</td>
+                                        <td>шт</td>
+                                        <td>1,500 ₽</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Реагент для анализа</td>
+                                        <td>REA-002</td>
+                                        <td>Реагенты</td>
+                                        <td>л</td>
+                                        <td>2,300 ₽</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Остатки на складе -->
+                    <div class="tab-panel" id="stock-panel">
+                        <h3>Остатки на складе</h3>
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Материал</th>
+                                        <th>Текущий остаток</th>
+                                        <th>Минимальная норма</th>
+                                        <th>Статус</th>
+                                        <th>Действия</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Фильтр воздушный</td>
+                                        <td>15 шт</td>
+                                        <td>10 шт</td>
+                                        <td><span class="status normal">Норма</span></td>
+                                        <td><button class="btn-small">Заказать</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Реагент для анализа</td>
+                                        <td>3 л</td>
+                                        <td>5 л</td>
+                                        <td><span class="status critical">Критично</span></td>
+                                        <td><button class="btn-small urgent">Срочно заказать</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- История расходования -->
+                    <div class="tab-panel" id="consumption-panel">
+                        <h3>История расходования</h3>
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Дата</th>
+                                        <th>Материал</th>
+                                        <th>Количество</th>
+                                        <th>Кто взял</th>
+                                        <th>Для оборудования</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>15.03.2023</td>
+                                        <td>Фильтр воздушный</td>
+                                        <td>2 шт</td>
+                                        <td>Иванов И.И.</td>
+                                        <td>КТ-001</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Заявки на закупку -->
+                    <div class="tab-panel" id="orders-panel">
+                        <h3>Заявки на закупку</h3>
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>№ заявки</th>
+                                        <th>Дата</th>
+                                        <th>Статус</th>
+                                        <th>Сумма</th>
+                                        <th>Ответственный</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#2023-001</td>
+                                        <td>10.03.2023</td>
+                                        <td><span class="status pending">В обработке</span></td>
+                                        <td>45,000 ₽</td>
+                                        <td>Петров П.П.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Поставщики -->
+                    <div class="tab-panel" id="suppliers-panel">
+                        <h3>Поставщики</h3>
+                        <div class="suppliers-grid">
+                            <div class="supplier-card">
+                                <h4>ООО "МедТехСнаб"</h4>
+                                <p>📞 +7 (495) 123-45-67</p>
+                                <p>📧 info@medtech.ru</p>
+                                <p>⏰ Срок поставки: 3-5 дней</p>
+                            </div>
+                            <div class="supplier-card">
+                                <h4>ЗАО "Лабораторные системы"</h4>
+                                <p>📞 +7 (812) 987-65-43</p>
+                                <p>📧 sales@labsys.ru</p>
+                                <p>⏰ Срок поставки: 1-2 дня</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Списание материалов -->
+                    <div class="tab-panel" id="writeoff-panel">
+                        <h3>Списание материалов</h3>
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Дата списания</th>
+                                        <th>Материал</th>
+                                        <th>Количество</th>
+                                        <th>Причина</th>
+                                        <th>Ответственный</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>20.03.2023</td>
+                                        <td>Реагент просроченный</td>
+                                        <td>1 л</td>
+                                        <td>Истечение срока годности</td>
+                                        <td>Сидоров С.С.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
