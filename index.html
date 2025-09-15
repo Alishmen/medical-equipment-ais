@@ -576,6 +576,7 @@
                     <button class="modal-tab active" data-tab="history">История обслуживания</button>
                     <button class="modal-tab" data-tab="breakdowns">Журнал поломок</button>
                     <button class="modal-tab" data-tab="schedule">График обслуживания</button>
+                    <button class="modal-tab" data-tab="load">Журнал нагрузки</button>
                     <button class="modal-tab" data-tab="reports">Отчеты по работе</button>
                     <button class="modal-tab" data-tab="documents">Документы</button>
                     <button class="modal-tab" data-tab="notifications">Уведомления</button>
@@ -652,6 +653,61 @@
                         </div>
                     </div>
                     
+                    <!-- Журнал нагрузки -->
+                    <div class="tab-panel" id="load-panel">
+                        <h3>Журнал нагрузки</h3>
+                        <div class="load-journal-container">
+                            <div class="date-selector">
+                                <h4>Выберите дату:</h4>
+                                <div class="date-buttons">
+                                    <button class="date-btn active" data-date="2025-09-11">11.09.2025</button>
+                                    <button class="date-btn" data-date="2025-09-12">12.09.2025</button>
+                                    <button class="date-btn" data-date="2025-09-13">13.09.2025</button>
+                                    <button class="date-btn" data-date="2025-09-14">14.09.2025</button>
+                                    <button class="date-btn" data-date="2025-09-15">15.09.2025</button>
+                                    <button class="date-btn" data-date="2025-09-16">16.09.2025</button>
+                                    <button class="date-btn" data-date="2025-09-17">17.09.2025</button>
+                                </div>
+                            </div>
+                            <div class="load-content-wrapper">
+                                <div class="load-journal-list" id="loadJournalList">
+                                    <!-- Список врачей будет генерироваться динамически -->
+                                </div>
+                                <div class="calendar-widget">
+                                    <div class="calendar-header">
+                                        <button class="calendar-nav-btn" id="prevMonth">‹</button>
+                                        <h4 class="calendar-month-year" id="calendarMonthYear">Сентябрь 2025</h4>
+                                        <button class="calendar-nav-btn" id="nextMonth">›</button>
+                                    </div>
+                                    <div class="calendar-grid">
+                                        <div class="calendar-weekdays">
+                                            <div class="weekday">Пн</div>
+                                            <div class="weekday">Вт</div>
+                                            <div class="weekday">Ср</div>
+                                            <div class="weekday">Чт</div>
+                                            <div class="weekday">Пт</div>
+                                            <div class="weekday">Сб</div>
+                                            <div class="weekday">Вс</div>
+                                        </div>
+                                        <div class="calendar-days" id="calendarDays">
+                                            <!-- Дни календаря будут генерироваться динамически -->
+                                        </div>
+                                    </div>
+                                    <div class="calendar-legend">
+                                        <div class="legend-item">
+                                            <span class="legend-dot available"></span>
+                                            <span>Доступные даты</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <span class="legend-dot selected"></span>
+                                            <span>Выбранная дата</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <!-- Отчеты по работе -->
                     <div class="tab-panel" id="reports-panel">
                         <h3>Отчеты по работе</h3>
@@ -665,6 +721,57 @@
                                 <h4>Эффективность</h4>
                                 <p>Коэффициент готовности: 0.98</p>
                                 <p>Среднее время ремонта: 4 часа</p>
+                            </div>
+                        </div>
+                        
+                        <div class="charts-section">
+                            <h4>Аналитика исследований</h4>
+                            <div class="charts-grid">
+                                <div class="chart-container">
+                                    <div class="chart-header">
+                                        <h5>Количество исследований по часам</h5>
+                                        <div class="chart-controls">
+                                            <button class="chart-btn active" data-period="today">Сегодня</button>
+                                            <button class="chart-btn" data-period="week">Неделя</button>
+                                        </div>
+                                    </div>
+                                    <div class="chart-wrapper">
+                                        <canvas id="hourlyChart" width="400" height="200"></canvas>
+                                    </div>
+                                    <div class="chart-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-label">Пик нагрузки:</span>
+                                            <span class="stat-value">14:00-15:00</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Всего исследований:</span>
+                                            <span class="stat-value" id="totalHourlyStudies">127</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="chart-container">
+                                    <div class="chart-header">
+                                        <h5>Количество исследований по месяцам</h5>
+                                        <div class="chart-controls">
+                                            <button class="chart-btn active" data-year="2024">2024</button>
+                                            <button class="chart-btn" data-year="2025">2025</button>
+                                        </div>
+                                    </div>
+                                    <div class="chart-wrapper">
+                                        <canvas id="monthlyChart" width="400" height="200"></canvas>
+                                    </div>
+                                    <div class="chart-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-label">Самый активный месяц:</span>
+                                            <span class="stat-value">Декабрь</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Всего исследований:</span>
+                                            <span class="stat-value" id="totalMonthlyStudies">1,847</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
