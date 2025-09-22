@@ -210,10 +210,28 @@ document.addEventListener('DOMContentLoaded', function() {
     // Инициализация графиков
     initializeCharts();
     
+    // Обработка кнопки поиска по дате поверки
+    document.getElementById('verificationSearchBtn').addEventListener('click', function() {
+        openVerificationSearch();
+    });
+    
+    // Обработка кнопки поиска по дате поверки для ЛИС
+    document.getElementById('lisVerificationSearchBtn').addEventListener('click', function() {
+        openLisVerificationSearch();
+    });
+    
+    // Обработка кнопки поиска по дате поверки для Прочее
+    document.getElementById('otherVerificationSearchBtn').addEventListener('click', function() {
+        openOtherVerificationSearch();
+    });
+    
     // Закрытие модальных окон при клике вне их
     window.addEventListener('click', function(event) {
         if (event.target.classList.contains('modal')) {
             closeModal(event.target.id);
+        }
+        if (event.target.classList.contains('verification-search-modal')) {
+            closeVerificationSearch();
         }
     });
     
@@ -223,6 +241,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const openModal = document.querySelector('.modal[style*="block"]');
             if (openModal) {
                 closeModal(openModal.id);
+            }
+            const verificationModal = document.getElementById('verificationSearchModal');
+            if (verificationModal && verificationModal.style.display === 'flex') {
+                closeVerificationSearch();
             }
         }
     });
@@ -657,4 +679,133 @@ function createMonthlyChart(year) {
     
     // Обновляем статистику
     document.getElementById('totalMonthlyStudies').textContent = data.total.toLocaleString();
+}
+
+// Функции для поиска по дате поверки
+function openVerificationSearch() {
+    const modal = document.getElementById('verificationSearchModal');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    // Устанавливаем флаг для РИС (по умолчанию)
+    modal.setAttribute('data-table', 'ris');
+}
+
+function closeVerificationSearch() {
+    const modal = document.getElementById('verificationSearchModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function searchByVerificationDate() {
+    const dateInput = document.getElementById('verificationDateInput');
+    const searchDate = dateInput.value;
+    
+    if (!searchDate) {
+        showNotification('Пожалуйста, выберите дату для поиска');
+        return;
+    }
+    
+    // Конвертируем дату в формат DD.MM.YYYY для сравнения
+    const formattedSearchDate = formatDateForComparison(searchDate);
+    
+    // Определяем какая таблица активна
+    const modal = document.getElementById('verificationSearchModal');
+    const tableType = modal.getAttribute('data-table');
+    
+    let tableRows, tableName;
+    
+    if (tableType === 'lis') {
+        tableRows = document.querySelectorAll('#lisEquipmentTableBody tr');
+        tableName = 'ЛИС';
+    } else if (tableType === 'other') {
+        tableRows = document.querySelectorAll('#otherEquipmentTableBody tr');
+        tableName = 'Прочее';
+    } else {
+        // По умолчанию РИС
+        tableRows = document.querySelectorAll('#equipmentTableBody tr');
+        tableName = 'РИС';
+    }
+    
+    let foundCount = 0;
+    
+    tableRows.forEach(row => {
+        const verificationCell = row.cells[5]; // 6-я колонка (индекс 5)
+        if (verificationCell) {
+            const cellDate = verificationCell.textContent.trim();
+            
+            // Проверяем, совпадает ли дата
+            if (cellDate === formattedSearchDate) {
+                row.style.display = '';
+                row.style.backgroundColor = '#fff3cd'; // Подсвечиваем найденные строки
+                foundCount++;
+            } else {
+                row.style.display = 'none';
+                row.style.backgroundColor = '';
+            }
+        }
+    });
+    
+    // Показываем результат
+    if (foundCount > 0) {
+        showNotification(`Найдено ${foundCount} единиц оборудования ${tableName} с поверкой на ${formattedSearchDate}`);
+    } else {
+        showNotification(`Оборудование ${tableName} с поверкой на ${formattedSearchDate} не найдено`);
+    }
+    
+    closeVerificationSearch();
+}
+
+function formatDateForComparison(dateString) {
+    // Конвертируем из формата YYYY-MM-DD в DD.MM.YYYY
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}.${month}.${year}`;
+}
+
+function resetTableFilter() {
+    // Сбрасываем фильтр и показываем все строки
+    const tableRows = document.querySelectorAll('#equipmentTableBody tr');
+    tableRows.forEach(row => {
+        row.style.display = '';
+        row.style.backgroundColor = '';
+    });
+    showNotification('Фильтр сброшен, показаны все записи');
+}
+
+// Функции для поиска по дате поверки ЛИС
+function openLisVerificationSearch() {
+    const modal = document.getElementById('verificationSearchModal');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    // Устанавливаем флаг для ЛИС
+    modal.setAttribute('data-table', 'lis');
+}
+
+function resetLisTableFilter() {
+    const tableRows = document.querySelectorAll('#lisEquipmentTableBody tr');
+    tableRows.forEach(row => {
+        row.style.display = '';
+        row.style.backgroundColor = '';
+    });
+    showNotification('Фильтр ЛИС сброшен, показаны все записи');
+}
+
+// Функции для поиска по дате поверки Прочее
+function openOtherVerificationSearch() {
+    const modal = document.getElementById('verificationSearchModal');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    // Устанавливаем флаг для Прочее
+    modal.setAttribute('data-table', 'other');
+}
+
+function resetOtherTableFilter() {
+    const tableRows = document.querySelectorAll('#otherEquipmentTableBody tr');
+    tableRows.forEach(row => {
+        row.style.display = '';
+        row.style.backgroundColor = '';
+    });
+    showNotification('Фильтр Прочее сброшен, показаны все записи');
 }

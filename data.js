@@ -31,8 +31,8 @@ const equipmentData = {
         nextMetrologyDate: '15.09.2023'
     },
     '003': {
-        mo: 'УЗИ-001',
-        serial: 'BEM-2023-001',
+        mo: 'КТ-003',
+        serial: 'SMM-2023-004',
         inv: '1036003',
         location: 'Ижевск, Пушкинская 230',
         category: 'Диагностическое',
@@ -76,8 +76,8 @@ const equipmentData = {
         nextMetrologyDate: '05.10.2023'
     },
     '006': {
-        mo: 'ЭКГ-001',
-        serial: 'BEM-2023-002',
+        mo: 'Ангиограф-001',
+        serial: 'SMM-2023-005',
         inv: '1036006',
         location: 'Ижевск, Пушкинская 232',
         category: 'Диагностическое',
@@ -91,7 +91,7 @@ const equipmentData = {
         nextMetrologyDate: '21.02.2024'
     },
     '007': {
-        mo: 'УЗИ-002',
+        mo: 'ПЭТ-КТ-001',
         serial: 'PHI-2023-001',
         inv: '1036007',
         location: 'Ижевск, Ленина 15',
@@ -136,8 +136,8 @@ const equipmentData = {
         nextMetrologyDate: '18.12.2023'
     },
     '010': {
-        mo: 'ЭКГ-002',
-        serial: 'MIN-2023-001',
+        mo: 'Флюороскоп-001',
+        serial: 'PHI-2023-002',
         inv: '1036010',
         location: 'Ижевск, Удмуртская 255',
         category: 'Диагностическое',
@@ -166,8 +166,8 @@ const equipmentData = {
         nextMetrologyDate: '10.02.2024'
     },
     '012': {
-        mo: 'УЗИ-003',
-        serial: 'HIT-2023-001',
+        mo: 'КТ-004',
+        serial: 'GE-2023-002',
         inv: '1036012',
         location: 'Ижевск, Карла Маркса 120',
         category: 'Диагностическое',
@@ -211,8 +211,8 @@ const equipmentData = {
         nextMetrologyDate: '28.04.2024'
     },
     '015': {
-        mo: 'УЗИ-004',
-        serial: 'ESA-2023-001',
+        mo: 'КТ-005',
+        serial: 'SMM-2023-006',
         inv: '1036015',
         location: 'Ижевск, Советская 45',
         category: 'Диагностическое',

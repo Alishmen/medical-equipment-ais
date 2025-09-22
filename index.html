@@ -31,6 +31,7 @@
                                 <div class="filter-container">
                                     <input type="text" id="equipmentFilter" placeholder="Поиск по оборудованию..." class="filter-input">
                                     <button class="filter-button">🔍</button>
+                                    <button class="filter-button reset-btn" onclick="resetTableFilter()" title="Сбросить фильтр">↻</button>
                                 </div>
                             </div>
                             
@@ -43,6 +44,7 @@
                                             <th>Производитель</th>
                                             <th>Тип</th>
                                             <th>Модель</th>
+                                            <th>Поверка <button class="search-btn" id="verificationSearchBtn" title="Поиск по дате поверки">🔍</button></th>
                                         </tr>
                                     </thead>
                                     <tbody id="equipmentTableBody">
@@ -52,6 +54,7 @@
                                             <td>Siemens</td>
                                             <td>Рентген</td>
                                             <td>Mobilett Mira Max</td>
+                                            <td>10.08.2023</td>
                                         </tr>
                                         <tr>
                                             <td>002</td>
@@ -59,13 +62,15 @@
                                             <td>Siemens</td>
                                             <td>Томограф</td>
                                             <td>SOMATOM go.Top</td>
+                                            <td>15.09.2023</td>
                                         </tr>
                                         <tr>
                                             <td>003</td>
                                             <td>ГКБ №5</td>
-                                            <td>Bemes</td>
-                                            <td>УЗИ</td>
-                                            <td>ACUSON NX3 Elite</td>
+                                            <td>Siemens</td>
+                                            <td>КТ</td>
+                                            <td>SOMATOM Force</td>
+                                            <td>01.11.2023</td>
                                         </tr>
                                         <tr>
                                             <td>004</td>
@@ -73,6 +78,7 @@
                                             <td>Gioho3d</td>
                                             <td>3D Сканер</td>
                                             <td>3D Pro Max</td>
+                                            <td>14.01.2024</td>
                                         </tr>
                                         <tr>
                                             <td>005</td>
@@ -80,20 +86,23 @@
                                             <td>Siemens</td>
                                             <td>МРТ</td>
                                             <td>MAGNETOM Vida</td>
+                                            <td>05.10.2023</td>
                                         </tr>
                                         <tr>
                                             <td>006</td>
                                             <td>ГКБ №7</td>
-                                            <td>Bemes</td>
-                                            <td>ЭКГ</td>
-                                            <td>CardioTouch 3000</td>
+                                            <td>Siemens</td>
+                                            <td>Ангиограф</td>
+                                            <td>ARTIS pheno</td>
+                                            <td>21.02.2024</td>
                                         </tr>
                                         <tr>
                                             <td>007</td>
                                             <td>ГКБ №1</td>
                                             <td>Philips</td>
-                                            <td>УЗИ</td>
-                                            <td>EPIQ 7</td>
+                                            <td>ПЭТ-КТ</td>
+                                            <td>Ingenuity TF</td>
+                                            <td>08.10.2023</td>
                                         </tr>
                                         <tr>
                                             <td>008</td>
@@ -101,6 +110,7 @@
                                             <td>GE Healthcare</td>
                                             <td>МРТ</td>
                                             <td>Signa Architect</td>
+                                            <td>04.11.2023</td>
                                         </tr>
                                         <tr>
                                             <td>009</td>
@@ -108,13 +118,15 @@
                                             <td>Canon</td>
                                             <td>Рентген</td>
                                             <td>CXDI-701C</td>
+                                            <td>18.12.2023</td>
                                         </tr>
                                         <tr>
                                             <td>010</td>
                                             <td>ГКБ №2</td>
-                                            <td>Mindray</td>
-                                            <td>ЭКГ</td>
-                                            <td>BeneHeart R3</td>
+                                            <td>Philips</td>
+                                            <td>Флюороскоп</td>
+                                            <td>FlexiVision</td>
+                                            <td>26.01.2024</td>
                                         </tr>
                                         <tr>
                                             <td>011</td>
@@ -122,13 +134,15 @@
                                             <td>Shimadzu</td>
                                             <td>Рентген</td>
                                             <td>MobileDaRt Evolution</td>
+                                            <td>10.02.2024</td>
                                         </tr>
                                         <tr>
                                             <td>012</td>
                                             <td>ГКБ №4</td>
-                                            <td>Hitachi</td>
-                                            <td>УЗИ</td>
-                                            <td>ARIETTA 850</td>
+                                            <td>GE Healthcare</td>
+                                            <td>КТ</td>
+                                            <td>Revolution CT</td>
+                                            <td>01.03.2024</td>
                                         </tr>
                                         <tr>
                                             <td>013</td>
@@ -136,6 +150,7 @@
                                             <td>Fujifilm</td>
                                             <td>Маммограф</td>
                                             <td>AMULET Innovality</td>
+                                            <td>14.04.2024</td>
                                         </tr>
                                         <tr>
                                             <td>014</td>
@@ -143,13 +158,15 @@
                                             <td>Carestream</td>
                                             <td>Рентген</td>
                                             <td>DRX-Revolution</td>
+                                            <td>28.04.2024</td>
                                         </tr>
                                         <tr>
                                             <td>015</td>
                                             <td>ГКБ №8</td>
-                                            <td>Esaote</td>
-                                            <td>УЗИ</td>
-                                            <td>MyLab 9</td>
+                                            <td>Siemens</td>
+                                            <td>КТ</td>
+                                            <td>SOMATOM Drive</td>
+                                            <td>21.06.2024</td>
                                         </tr>
                                         <tr>
                                             <td>016</td>
@@ -157,6 +174,7 @@
                                             <td>Medtronic</td>
                                             <td>Дефибриллятор</td>
                                             <td>LIFEPAK 15</td>
+                                            <td>06.07.2024</td>
                                         </tr>
                                         <tr>
                                             <td>017</td>
@@ -164,6 +182,7 @@
                                             <td>Ziehm</td>
                                             <td>С-дуга</td>
                                             <td>Vision RFD 3D</td>
+                                            <td>11.08.2024</td>
                                         </tr>
                                         <tr>
                                             <td>018</td>
@@ -171,6 +190,7 @@
                                             <td>Stryker</td>
                                             <td>Эндоскоп</td>
                                             <td>1688 AIM HD</td>
+                                            <td>24.09.2024</td>
                                         </tr>
                                         <tr>
                                             <td>019</td>
@@ -178,6 +198,7 @@
                                             <td>Olympus</td>
                                             <td>Эндоскоп</td>
                                             <td>EVIS EXERA III</td>
+                                            <td>08.10.2024</td>
                                         </tr>
                                         <tr>
                                             <td>020</td>
@@ -185,6 +206,7 @@
                                             <td>Drager</td>
                                             <td>Аппарат ИВЛ</td>
                                             <td>Babylog VN500</td>
+                                            <td>01.11.2024</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -298,6 +320,7 @@
                                 <div class="filter-container">
                                     <input type="text" id="lisEquipmentFilter" placeholder="Поиск по оборудованию..." class="filter-input">
                                     <button class="filter-button">🔍</button>
+                                    <button class="filter-button reset-btn" onclick="resetLisTableFilter()" title="Сбросить фильтр">↻</button>
                                 </div>
                             </div>
                             
@@ -310,6 +333,7 @@
                                             <th>Производитель</th>
                                             <th>Тип</th>
                                             <th>Модель</th>
+                                            <th>Поверка <button class="search-btn" id="lisVerificationSearchBtn" title="Поиск по дате поверки">🔍</button></th>
                                         </tr>
                                     </thead>
                                     <tbody id="lisEquipmentTableBody">
@@ -319,6 +343,7 @@
                                             <td>Alisei</td>
                                             <td>Анализатор</td>
                                             <td>Alisei 2000</td>
+                                            <td>10.09.2023</td>
                                         </tr>
                                         <tr>
                                             <td>L002</td>
@@ -326,6 +351,7 @@
                                             <td>Alisei</td>
                                             <td>Центрифуга</td>
                                             <td>Alisei Centrifuge Pro</td>
+                                            <td>15.10.2023</td>
                                         </tr>
                                         <tr>
                                             <td>L003</td>
@@ -333,6 +359,7 @@
                                             <td>Multiskan</td>
                                             <td>Сканер</td>
                                             <td>Multiskan FC</td>
+                                            <td>01.11.2023</td>
                                         </tr>
                                         <tr>
                                             <td>L004</td>
@@ -340,6 +367,7 @@
                                             <td>Multiskan</td>
                                             <td>Микропланшет</td>
                                             <td>Multiskan Sky</td>
+                                            <td>14.12.2023</td>
                                         </tr>
                                         <tr>
                                             <td>L005</td>
@@ -347,6 +375,7 @@
                                             <td>Biochorm</td>
                                             <td>Анализатор</td>
                                             <td>Biochorm 3000</td>
+                                            <td>05.01.2024</td>
                                         </tr>
                                         <tr>
                                             <td>L006</td>
@@ -354,6 +383,7 @@
                                             <td>Biochorm</td>
                                             <td>Иммуноанализатор</td>
                                             <td>Biochorm ELISA</td>
+                                            <td>21.02.2024</td>
                                         </tr>
                                         <tr>
                                             <td>L007</td>
@@ -361,6 +391,7 @@
                                             <td>Alisei</td>
                                             <td>Гематолог</td>
                                             <td>Alisei Hematology</td>
+                                            <td>08.03.2024</td>
                                         </tr>
                                         <tr>
                                             <td>L008</td>
@@ -368,6 +399,7 @@
                                             <td>Multiskan</td>
                                             <td>Флуориметр</td>
                                             <td>Multiskan Luminescence</td>
+                                            <td>04.04.2024</td>
                                         </tr>
                                         <tr>
                                             <td>L009</td>
@@ -375,6 +407,7 @@
                                             <td>Biochorm</td>
                                             <td>Коагулометр</td>
                                             <td>Biochorm Coag</td>
+                                            <td>18.05.2024</td>
                                         </tr>
                                         <tr>
                                             <td>L010</td>
@@ -382,6 +415,7 @@
                                             <td>Alisei</td>
                                             <td>Микроскоп</td>
                                             <td>Alisei Micro Pro</td>
+                                            <td>26.06.2024</td>
                                         </tr>
                                         <tr>
                                             <td>L011</td>
@@ -389,6 +423,7 @@
                                             <td>Multiskan</td>
                                             <td>Спектрофотометр</td>
                                             <td>Multiskan Spectrum</td>
+                                            <td>10.07.2024</td>
                                         </tr>
                                         <tr>
                                             <td>L012</td>
@@ -396,6 +431,7 @@
                                             <td>Biochorm</td>
                                             <td>Анализатор мочи</td>
                                             <td>Biochorm Urine</td>
+                                            <td>01.08.2024</td>
                                         </tr>
                                         <tr>
                                             <td>L013</td>
@@ -403,6 +439,7 @@
                                             <td>Alisei</td>
                                             <td>Инкубатор</td>
                                             <td>Alisei Incubator</td>
+                                            <td>14.09.2024</td>
                                         </tr>
                                         <tr>
                                             <td>L014</td>
@@ -410,6 +447,7 @@
                                             <td>Multiskan</td>
                                             <td>Термоциклер</td>
                                             <td>Multiskan PCR</td>
+                                            <td>28.09.2024</td>
                                         </tr>
                                         <tr>
                                             <td>L015</td>
@@ -417,6 +455,7 @@
                                             <td>Biochorm</td>
                                             <td>Газоанализатор</td>
                                             <td>Biochorm Gas</td>
+                                            <td>21.11.2024</td>
                                         </tr>
                                         <tr>
                                             <td>L016</td>
@@ -424,6 +463,7 @@
                                             <td>Alisei</td>
                                             <td>Автоклав</td>
                                             <td>Alisei Autoclave</td>
+                                            <td>06.12.2024</td>
                                         </tr>
                                         <tr>
                                             <td>L017</td>
@@ -431,6 +471,7 @@
                                             <td>Multiskan</td>
                                             <td>Денситометр</td>
                                             <td>Multiskan Densitometer</td>
+                                            <td>11.01.2025</td>
                                         </tr>
                                         <tr>
                                             <td>L018</td>
@@ -438,6 +479,7 @@
                                             <td>Biochorm</td>
                                             <td>pH-метр</td>
                                             <td>Biochorm pH Pro</td>
+                                            <td>24.02.2025</td>
                                         </tr>
                                         <tr>
                                             <td>L019</td>
@@ -445,6 +487,7 @@
                                             <td>Alisei</td>
                                             <td>Весы</td>
                                             <td>Alisei Balance</td>
+                                            <td>08.03.2025</td>
                                         </tr>
                                         <tr>
                                             <td>L020</td>
@@ -452,6 +495,7 @@
                                             <td>Multiskan</td>
                                             <td>Вискозиметр</td>
                                             <td>Multiskan Viscosity</td>
+                                            <td>01.04.2025</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -561,10 +605,11 @@
                         <!-- Левая часть - Список оборудования -->
                         <div class="equipment-section">
                             <div class="section-header">
-                                <h3 class="section-title">Прочее оборудование (Эндоскопы)</h3>
+                                <h3 class="section-title">Прочее оборудование</h3>
                                 <div class="filter-container">
                                     <input type="text" id="otherEquipmentFilter" placeholder="Поиск по оборудованию..." class="filter-input">
                                     <button class="filter-button">🔍</button>
+                                    <button class="filter-button reset-btn" onclick="resetOtherTableFilter()" title="Сбросить фильтр">↻</button>
                                 </div>
                             </div>
                             
@@ -577,6 +622,7 @@
                                             <th>Производитель</th>
                                             <th>Тип</th>
                                             <th>Модель</th>
+                                            <th>Поверка <button class="search-btn" id="otherVerificationSearchBtn" title="Поиск по дате поверки">🔍</button></th>
                                         </tr>
                                     </thead>
                                     <tbody id="otherEquipmentTableBody">
@@ -586,6 +632,7 @@
                                             <td>Olympus</td>
                                             <td>Эндоскоп</td>
                                             <td>EVIS EXERA III</td>
+                                            <td>05.08.2024</td>
                                         </tr>
                                         <tr>
                                             <td>O002</td>
@@ -593,6 +640,7 @@
                                             <td>Stryker</td>
                                             <td>Эндоскоп</td>
                                             <td>1688 AIM HD</td>
+                                            <td>15.09.2024</td>
                                         </tr>
                                         <tr>
                                             <td>O003</td>
@@ -600,6 +648,7 @@
                                             <td>Olympus</td>
                                             <td>Эндоскоп</td>
                                             <td>EVIS LUCERA</td>
+                                            <td>01.10.2024</td>
                                         </tr>
                                         <tr>
                                             <td>O004</td>
@@ -607,6 +656,7 @@
                                             <td>Fujifilm</td>
                                             <td>Эндоскоп</td>
                                             <td>ELUXEO 7000</td>
+                                            <td>14.10.2024</td>
                                         </tr>
                                         <tr>
                                             <td>O005</td>
@@ -614,6 +664,7 @@
                                             <td>Olympus</td>
                                             <td>Эндоскоп</td>
                                             <td>EVIS X1</td>
+                                            <td>05.11.2024</td>
                                         </tr>
                                         <tr>
                                             <td>O006</td>
@@ -621,6 +672,7 @@
                                             <td>Stryker</td>
                                             <td>Эндоскоп</td>
                                             <td>Advanced Imaging 4K</td>
+                                            <td>21.11.2024</td>
                                         </tr>
                                         <tr>
                                             <td>O007</td>
@@ -628,6 +680,7 @@
                                             <td>Fujifilm</td>
                                             <td>Эндоскоп</td>
                                             <td>7000 System</td>
+                                            <td>08.12.2024</td>
                                         </tr>
                                         <tr>
                                             <td>O008</td>
@@ -635,6 +688,7 @@
                                             <td>Olympus</td>
                                             <td>Эндоскоп</td>
                                             <td>EVIS EXERA II</td>
+                                            <td>15.12.2024</td>
                                         </tr>
                                         <tr>
                                             <td>O009</td>
@@ -642,6 +696,7 @@
                                             <td>Stryker</td>
                                             <td>Эндоскоп</td>
                                             <td>1688 4K</td>
+                                            <td>01.01.2025</td>
                                         </tr>
                                         <tr>
                                             <td>O010</td>
@@ -649,6 +704,7 @@
                                             <td>Olympus</td>
                                             <td>Эндоскоп</td>
                                             <td>VISERA ELITE II</td>
+                                            <td>14.01.2025</td>
                                         </tr>
                                         <tr>
                                             <td>O011</td>
@@ -656,6 +712,7 @@
                                             <td>Fujifilm</td>
                                             <td>Эндоскоп</td>
                                             <td>VP-7000</td>
+                                            <td>05.02.2025</td>
                                         </tr>
                                         <tr>
                                             <td>O012</td>
@@ -663,6 +720,7 @@
                                             <td>Olympus</td>
                                             <td>Эндоскоп</td>
                                             <td>GIF-HQ190</td>
+                                            <td>21.02.2025</td>
                                         </tr>
                                         <tr>
                                             <td>O013</td>
@@ -670,6 +728,7 @@
                                             <td>Stryker</td>
                                             <td>Эндоскоп</td>
                                             <td>1488 HD</td>
+                                            <td>08.03.2025</td>
                                         </tr>
                                         <tr>
                                             <td>O014</td>
@@ -677,6 +736,7 @@
                                             <td>Olympus</td>
                                             <td>Эндоскоп</td>
                                             <td>GIF-1TH190</td>
+                                            <td>15.03.2025</td>
                                         </tr>
                                         <tr>
                                             <td>O015</td>
@@ -684,6 +744,7 @@
                                             <td>Fujifilm</td>
                                             <td>Эндоскоп</td>
                                             <td>EC-760ZP</td>
+                                            <td>01.04.2025</td>
                                         </tr>
                                         <tr>
                                             <td>O016</td>
@@ -691,6 +752,7 @@
                                             <td>Olympus</td>
                                             <td>Эндоскоп</td>
                                             <td>CF-HQ190</td>
+                                            <td>14.04.2025</td>
                                         </tr>
                                         <tr>
                                             <td>O017</td>
@@ -698,6 +760,7 @@
                                             <td>Stryker</td>
                                             <td>Эндоскоп</td>
                                             <td>1588 AIM</td>
+                                            <td>15.04.2025</td>
                                         </tr>
                                         <tr>
                                             <td>O018</td>
@@ -705,6 +768,7 @@
                                             <td>Olympus</td>
                                             <td>Эндоскоп</td>
                                             <td>CF-HQ180</td>
+                                            <td>24.04.2025</td>
                                         </tr>
                                         <tr>
                                             <td>O019</td>
@@ -712,6 +776,7 @@
                                             <td>Fujifilm</td>
                                             <td>Эндоскоп</td>
                                             <td>EG-760R</td>
+                                            <td>01.05.2025</td>
                                         </tr>
                                         <tr>
                                             <td>O020</td>
@@ -719,6 +784,7 @@
                                             <td>Olympus</td>
                                             <td>Эндоскоп</td>
                                             <td>EU-ME2</td>
+                                            <td>08.05.2025</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1273,6 +1339,18 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно поиска по дате поверки -->
+    <div id="verificationSearchModal" class="verification-search-modal">
+        <div class="verification-search-content">
+            <h3>Поиск по дате поверки</h3>
+            <input type="date" id="verificationDateInput" placeholder="Выберите дату">
+            <div class="search-buttons">
+                <button class="search-btn-secondary" onclick="closeVerificationSearch()">Отмена</button>
+                <button class="search-btn-primary" onclick="searchByVerificationDate()">Поиск</button>
             </div>
         </div>
     </div>
