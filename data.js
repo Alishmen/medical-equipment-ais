@@ -13,7 +13,7 @@ const equipmentData = {
         serviceDate: '20.03.2023',
         nextServiceDate: '20.09.2023',
         metrologyDate: '10.02.2023',
-        nextMetrologyDate: '10.08.2023'
+        nextMetrologyDate: '-'
     },
     '002': {
         mo: 'КТ-002',
@@ -28,7 +28,7 @@ const equipmentData = {
         serviceDate: '25.04.2023',
         nextServiceDate: '25.10.2023',
         metrologyDate: '15.03.2023',
-        nextMetrologyDate: '15.09.2023'
+        nextMetrologyDate: '-'
     },
     '003': {
         mo: 'КТ-003',
@@ -43,7 +43,7 @@ const equipmentData = {
         serviceDate: '10.06.2023',
         nextServiceDate: '10.12.2023',
         metrologyDate: '01.05.2023',
-        nextMetrologyDate: '01.11.2023'
+        nextMetrologyDate: '-'
     },
     '004': {
         mo: '3D-001',
@@ -58,7 +58,7 @@ const equipmentData = {
         serviceDate: '23.08.2023',
         nextServiceDate: '23.02.2024',
         metrologyDate: '14.07.2023',
-        nextMetrologyDate: '14.01.2024'
+        nextMetrologyDate: '14.01.2026'
     },
     '005': {
         mo: 'МРТ-001',
@@ -73,7 +73,7 @@ const equipmentData = {
         serviceDate: '15.05.2023',
         nextServiceDate: '15.11.2023',
         metrologyDate: '05.04.2023',
-        nextMetrologyDate: '05.10.2023'
+        nextMetrologyDate: '05.10.2027'
     },
     '006': {
         mo: 'Ангиограф-001',
@@ -88,7 +88,7 @@ const equipmentData = {
         serviceDate: '30.09.2023',
         nextServiceDate: '30.03.2024',
         metrologyDate: '21.08.2023',
-        nextMetrologyDate: '21.02.2024'
+        nextMetrologyDate: '-'
     },
     '007': {
         mo: 'ПЭТ-КТ-001',
@@ -103,7 +103,7 @@ const equipmentData = {
         serviceDate: '18.05.2023',
         nextServiceDate: '18.11.2023',
         metrologyDate: '08.04.2023',
-        nextMetrologyDate: '08.10.2023'
+        nextMetrologyDate: '-'
     },
     '008': {
         mo: 'МРТ-002',
@@ -118,7 +118,7 @@ const equipmentData = {
         serviceDate: '14.06.2023',
         nextServiceDate: '14.12.2023',
         metrologyDate: '04.05.2023',
-        nextMetrologyDate: '04.11.2023'
+        nextMetrologyDate: '-'
     },
     '009': {
         mo: 'Рентген-001',
@@ -133,7 +133,7 @@ const equipmentData = {
         serviceDate: '28.07.2023',
         nextServiceDate: '28.01.2024',
         metrologyDate: '18.06.2023',
-        nextMetrologyDate: '18.12.2023'
+        nextMetrologyDate: '18.12.2027'
     },
     '010': {
         mo: 'Флюороскоп-001',
@@ -148,7 +148,7 @@ const equipmentData = {
         serviceDate: '05.09.2023',
         nextServiceDate: '05.03.2024',
         metrologyDate: '26.07.2023',
-        nextMetrologyDate: '26.01.2024'
+        nextMetrologyDate: '26.01.2026'
     },
     '011': {
         mo: 'Рентген-002',
@@ -163,7 +163,7 @@ const equipmentData = {
         serviceDate: '20.09.2023',
         nextServiceDate: '20.03.2024',
         metrologyDate: '10.08.2023',
-        nextMetrologyDate: '10.02.2024'
+        nextMetrologyDate: '10.02.2025'
     },
     '012': {
         mo: 'КТ-004',
@@ -178,7 +178,7 @@ const equipmentData = {
         serviceDate: '11.10.2023',
         nextServiceDate: '11.04.2024',
         metrologyDate: '01.09.2023',
-        nextMetrologyDate: '01.03.2024'
+        nextMetrologyDate: '-'
     },
     '013': {
         mo: 'Маммограф-001',
@@ -193,7 +193,7 @@ const equipmentData = {
         serviceDate: '24.11.2023',
         nextServiceDate: '24.05.2024',
         metrologyDate: '14.10.2023',
-        nextMetrologyDate: '14.04.2024'
+        nextMetrologyDate: '-'
     },
     '014': {
         mo: 'Рентген-003',
@@ -208,7 +208,7 @@ const equipmentData = {
         serviceDate: '08.12.2023',
         nextServiceDate: '08.06.2024',
         metrologyDate: '28.10.2023',
-        nextMetrologyDate: '28.04.2024'
+        nextMetrologyDate: '-'
     },
     '015': {
         mo: 'КТ-005',
@@ -223,7 +223,7 @@ const equipmentData = {
         serviceDate: '01.02.2024',
         nextServiceDate: '01.08.2024',
         metrologyDate: '21.12.2023',
-        nextMetrologyDate: '21.06.2024'
+        nextMetrologyDate: '-'
     },
     '016': {
         mo: 'Дефибриллятор-001',
@@ -237,7 +237,7 @@ const equipmentData = {
         serviceDate: '16.02.2024',
         nextServiceDate: '16.08.2024',
         metrologyDate: '06.01.2024',
-        nextMetrologyDate: '06.07.2024'
+        nextMetrologyDate: '-'
     },
     '017': {
         mo: 'С-дуга-001',
@@ -251,7 +251,7 @@ const equipmentData = {
         serviceDate: '21.03.2024',
         nextServiceDate: '21.09.2024',
         metrologyDate: '11.02.2024',
-        nextMetrologyDate: '11.08.2024'
+        nextMetrologyDate: '11.08.2025'
     },
     '018': {
         mo: 'Эндоскоп-001',
@@ -265,7 +265,7 @@ const equipmentData = {
         serviceDate: '05.05.2024',
         nextServiceDate: '05.11.2024',
         metrologyDate: '24.03.2024',
-        nextMetrologyDate: '24.09.2024'
+        nextMetrologyDate: '24.09.2027'
     },
     '019': {
         mo: 'Эндоскоп-002',
@@ -279,7 +279,7 @@ const equipmentData = {
         serviceDate: '18.06.2024',
         nextServiceDate: '18.12.2024',
         metrologyDate: '08.04.2024',
-        nextMetrologyDate: '08.10.2024'
+        nextMetrologyDate: '08.10.2025'
     },
     '020': {
         mo: 'ИВЛ-001',
@@ -293,7 +293,7 @@ const equipmentData = {
         serviceDate: '11.07.2024',
         nextServiceDate: '11.01.2025',
         metrologyDate: '01.05.2024',
-        nextMetrologyDate: '01.11.2024'
+        nextMetrologyDate: '01.11.2027'
     }
 };
 
@@ -312,7 +312,7 @@ const lisEquipmentData = {
         serviceDate: '20.04.2023',
         nextServiceDate: '20.10.2023',
         metrologyDate: '10.03.2023',
-        nextMetrologyDate: '10.09.2023'
+        nextMetrologyDate: '-'
     },
     'L002': {
         mo: 'Центрифуга-001',
@@ -327,7 +327,7 @@ const lisEquipmentData = {
         serviceDate: '25.05.2023',
         nextServiceDate: '25.11.2023',
         metrologyDate: '15.04.2023',
-        nextMetrologyDate: '15.10.2023'
+        nextMetrologyDate: '-'
     },
     'L003': {
         mo: 'Сканер-001',
@@ -342,7 +342,7 @@ const lisEquipmentData = {
         serviceDate: '10.06.2023',
         nextServiceDate: '10.12.2023',
         metrologyDate: '01.05.2023',
-        nextMetrologyDate: '01.11.2023'
+        nextMetrologyDate: '-'
     },
     'L004': {
         mo: 'Микропланшет-001',
@@ -357,7 +357,7 @@ const lisEquipmentData = {
         serviceDate: '23.07.2023',
         nextServiceDate: '23.01.2024',
         metrologyDate: '14.06.2023',
-        nextMetrologyDate: '14.12.2023'
+        nextMetrologyDate: '-'
     },
     'L005': {
         mo: 'Анализатор-002',
@@ -372,7 +372,7 @@ const lisEquipmentData = {
         serviceDate: '15.08.2023',
         nextServiceDate: '15.02.2024',
         metrologyDate: '05.07.2023',
-        nextMetrologyDate: '05.01.2024'
+        nextMetrologyDate: '-'
     },
     'L006': {
         mo: 'Иммуноанализатор-001',
@@ -387,7 +387,7 @@ const lisEquipmentData = {
         serviceDate: '30.09.2023',
         nextServiceDate: '30.03.2024',
         metrologyDate: '21.08.2023',
-        nextMetrologyDate: '21.02.2024'
+        nextMetrologyDate: '-'
     },
     'L007': {
         mo: 'Гематолог-001',
@@ -402,7 +402,7 @@ const lisEquipmentData = {
         serviceDate: '18.10.2023',
         nextServiceDate: '18.04.2024',
         metrologyDate: '08.09.2023',
-        nextMetrologyDate: '08.03.2024'
+        nextMetrologyDate: '-'
     },
     'L008': {
         mo: 'Флуориметр-001',
@@ -417,7 +417,7 @@ const lisEquipmentData = {
         serviceDate: '14.11.2023',
         nextServiceDate: '14.05.2024',
         metrologyDate: '04.10.2023',
-        nextMetrologyDate: '04.04.2024'
+        nextMetrologyDate: '-'
     },
     'L009': {
         mo: 'Коагулометр-001',
@@ -432,7 +432,7 @@ const lisEquipmentData = {
         serviceDate: '28.12.2023',
         nextServiceDate: '28.06.2024',
         metrologyDate: '18.11.2023',
-        nextMetrologyDate: '18.05.2024'
+        nextMetrologyDate: '-'
     },
     'L010': {
         mo: 'Микроскоп-001',
@@ -447,7 +447,7 @@ const lisEquipmentData = {
         serviceDate: '05.02.2024',
         nextServiceDate: '05.08.2024',
         metrologyDate: '26.12.2023',
-        nextMetrologyDate: '26.06.2024'
+        nextMetrologyDate: '-'
     },
     'L011': {
         mo: 'Спектрофотометр-001',
@@ -462,7 +462,7 @@ const lisEquipmentData = {
         serviceDate: '20.02.2024',
         nextServiceDate: '20.08.2024',
         metrologyDate: '10.01.2024',
-        nextMetrologyDate: '10.07.2024'
+        nextMetrologyDate: '-'
     },
     'L012': {
         mo: 'Анализатор мочи-001',
@@ -477,7 +477,7 @@ const lisEquipmentData = {
         serviceDate: '11.03.2024',
         nextServiceDate: '11.09.2024',
         metrologyDate: '01.02.2024',
-        nextMetrologyDate: '01.08.2024'
+        nextMetrologyDate: '-'
     },
     'L013': {
         mo: 'Инкубатор-001',
@@ -492,7 +492,7 @@ const lisEquipmentData = {
         serviceDate: '24.04.2024',
         nextServiceDate: '24.10.2024',
         metrologyDate: '14.03.2024',
-        nextMetrologyDate: '14.09.2024'
+        nextMetrologyDate: '-'
     },
     'L014': {
         mo: 'Термоциклер-001',
@@ -507,7 +507,7 @@ const lisEquipmentData = {
         serviceDate: '08.05.2024',
         nextServiceDate: '08.11.2024',
         metrologyDate: '28.03.2024',
-        nextMetrologyDate: '28.09.2024'
+        nextMetrologyDate: '28.09.2025'
     },
     'L015': {
         mo: 'Газоанализатор-001',
@@ -522,7 +522,7 @@ const lisEquipmentData = {
         serviceDate: '01.07.2024',
         nextServiceDate: '01.01.2025',
         metrologyDate: '21.05.2024',
-        nextMetrologyDate: '21.11.2024'
+        nextMetrologyDate: '21.11.2027'
     },
     'L016': {
         mo: 'Автоклав-001',
@@ -537,7 +537,7 @@ const lisEquipmentData = {
         serviceDate: '16.08.2024',
         nextServiceDate: '16.02.2025',
         metrologyDate: '06.06.2024',
-        nextMetrologyDate: '06.12.2024'
+        nextMetrologyDate: '06.12.2026'
     },
     'L017': {
         mo: 'Денситометр-001',
@@ -552,7 +552,7 @@ const lisEquipmentData = {
         serviceDate: '21.09.2024',
         nextServiceDate: '21.03.2025',
         metrologyDate: '11.07.2024',
-        nextMetrologyDate: '11.01.2025'
+        nextMetrologyDate: '11.01.2027'
     },
     'L018': {
         mo: 'pH-метр-001',
@@ -567,7 +567,7 @@ const lisEquipmentData = {
         serviceDate: '03.10.2024',
         nextServiceDate: '03.04.2025',
         metrologyDate: '24.08.2024',
-        nextMetrologyDate: '24.02.2025'
+        nextMetrologyDate: '24.02.2027'
     },
     'L019': {
         mo: 'Весы-001',
@@ -582,7 +582,7 @@ const lisEquipmentData = {
         serviceDate: '18.11.2024',
         nextServiceDate: '18.05.2025',
         metrologyDate: '08.09.2024',
-        nextMetrologyDate: '08.03.2025'
+        nextMetrologyDate: '08.03.2026'
     },
     'L020': {
         mo: 'Вискозиметр-001',
@@ -597,32 +597,32 @@ const lisEquipmentData = {
         serviceDate: '11.12.2024',
         nextServiceDate: '11.06.2025',
         metrologyDate: '01.10.2024',
-        nextMetrologyDate: '01.04.2025'
+        nextMetrologyDate: '01.04.2027'
     }
 };
 
 // Данные для вкладки Прочее (эндоскопы)
 const otherEquipmentData = {
-    'O001': { mo: 'Эндоскоп-101', serial: 'OLY-2024-101', inv: '3036101', location: 'Ижевск, Ленина 15', category: 'Хирургическое', registration: 'РУ №2024/33001', startDate: '12.01.2024', expirationDate: '12.01.2029', extensionDate: '12.01.2034', serviceDate: '18.03.2024', nextServiceDate: '18.09.2024', metrologyDate: '05.02.2024', nextMetrologyDate: '05.08.2024' },
-    'O002': { mo: 'Эндоскоп-102', serial: 'STR-2024-102', inv: '3036102', location: 'Ижевск, Ленина 15', category: 'Хирургическое', registration: 'РУ №2024/33002', startDate: '20.02.2024', expirationDate: '20.02.2029', extensionDate: '20.02.2034', serviceDate: '25.04.2024', nextServiceDate: '25.10.2024', metrologyDate: '15.03.2024', nextMetrologyDate: '15.09.2024' },
-    'O003': { mo: 'Эндоскоп-103', serial: 'OLY-2024-103', inv: '3036103', location: 'Ижевск, Удмуртская 255', category: 'Хирургическое', registration: 'РУ №2024/33003', startDate: '05.03.2024', expirationDate: '05.03.2029', extensionDate: '05.03.2034', serviceDate: '10.05.2024', nextServiceDate: '10.11.2024', metrologyDate: '01.04.2024', nextMetrologyDate: '01.10.2024' },
-    'O004': { mo: 'Эндоскоп-104', serial: 'FUJ-2024-104', inv: '3036104', location: 'Ижевск, Удмуртская 255', category: 'Хирургическое', startDate: '18.03.2024', expirationDate: '18.03.2029', extensionDate: '18.03.2034', serviceDate: '23.06.2024', nextServiceDate: '23.12.2024', metrologyDate: '14.04.2024', nextMetrologyDate: '14.10.2024' },
-    'O005': { mo: 'Эндоскоп-105', serial: 'OLY-2024-105', inv: '3036105', location: 'Ижевск, Пушкинская 228', category: 'Хирургическое', registration: 'РУ №2024/33005', startDate: '10.04.2024', expirationDate: '10.04.2029', extensionDate: '10.04.2034', serviceDate: '15.06.2024', nextServiceDate: '15.12.2024', metrologyDate: '05.05.2024', nextMetrologyDate: '05.11.2024' },
-    'O006': { mo: 'Эндоскоп-106', serial: 'STR-2024-106', inv: '3036106', location: 'Ижевск, Пушкинская 228', category: 'Хирургическое', startDate: '25.04.2024', expirationDate: '25.04.2029', extensionDate: '25.04.2034', serviceDate: '30.06.2024', nextServiceDate: '30.12.2024', metrologyDate: '21.05.2024', nextMetrologyDate: '21.11.2024' },
-    'O007': { mo: 'Эндоскоп-107', serial: 'FUJ-2024-107', inv: '3036107', location: 'Ижевск, Карла Маркса 120', category: 'Хирургическое', startDate: '12.05.2024', expirationDate: '12.05.2029', extensionDate: '12.05.2034', serviceDate: '18.07.2024', nextServiceDate: '18.01.2025', metrologyDate: '08.06.2024', nextMetrologyDate: '08.12.2024' },
-    'O008': { mo: 'Эндоскоп-108', serial: 'OLY-2024-108', inv: '3036108', location: 'Ижевск, Карла Маркса 120', category: 'Хирургическое', startDate: '20.05.2024', expirationDate: '20.05.2029', extensionDate: '20.05.2034', serviceDate: '25.07.2024', nextServiceDate: '25.01.2025', metrologyDate: '15.06.2024', nextMetrologyDate: '15.12.2024' },
-    'O009': { mo: 'Эндоскоп-109', serial: 'STR-2024-109', inv: '3036109', location: 'Ижевск, Первомайская 85', category: 'Хирургическое', startDate: '05.06.2024', expirationDate: '05.06.2029', extensionDate: '05.06.2034', serviceDate: '10.08.2024', nextServiceDate: '10.02.2025', metrologyDate: '01.07.2024', nextMetrologyDate: '01.01.2025' },
-    'O010': { mo: 'Эндоскоп-110', serial: 'OLY-2024-110', inv: '3036110', location: 'Ижевск, Первомайская 85', category: 'Хирургическое', startDate: '18.06.2024', expirationDate: '18.06.2029', extensionDate: '18.06.2034', serviceDate: '24.08.2024', nextServiceDate: '24.02.2025', metrologyDate: '14.07.2024', nextMetrologyDate: '14.01.2025' },
-    'O011': { mo: 'Эндоскоп-111', serial: 'FUJ-2024-111', inv: '3036111', location: 'Ижевск, Советская 45', category: 'Хирургическое', startDate: '10.07.2024', expirationDate: '10.07.2029', extensionDate: '10.07.2034', serviceDate: '15.09.2024', nextServiceDate: '15.03.2025', metrologyDate: '05.08.2024', nextMetrologyDate: '05.02.2025' },
-    'O012': { mo: 'Эндоскоп-112', serial: 'OLY-2024-112', inv: '3036112', location: 'Ижевск, Советская 45', category: 'Хирургическое', startDate: '25.07.2024', expirationDate: '25.07.2029', extensionDate: '25.07.2034', serviceDate: '30.09.2024', nextServiceDate: '30.03.2025', metrologyDate: '21.08.2024', nextMetrologyDate: '21.02.2025' },
-    'O013': { mo: 'Эндоскоп-113', serial: 'STR-2024-113', inv: '3036113', location: 'Ижевск, Коммунаров 180', category: 'Хирургическое', startDate: '12.08.2024', expirationDate: '12.08.2029', extensionDate: '12.08.2034', serviceDate: '18.10.2024', nextServiceDate: '18.04.2025', metrologyDate: '08.09.2024', nextMetrologyDate: '08.03.2025' },
-    'O014': { mo: 'Эндоскоп-114', serial: 'OLY-2024-114', inv: '3036114', location: 'Ижевск, Коммунаров 180', category: 'Хирургическое', startDate: '20.08.2024', expirationDate: '20.08.2029', extensionDate: '20.08.2034', serviceDate: '25.10.2024', nextServiceDate: '25.04.2025', metrologyDate: '15.09.2024', nextMetrologyDate: '15.03.2025' },
-    'O015': { mo: 'Эндоскоп-115', serial: 'FUJ-2024-115', inv: '3036115', location: 'Ижевск, Молодежная 95', category: 'Хирургическое', startDate: '05.09.2024', expirationDate: '05.09.2029', extensionDate: '05.09.2034', serviceDate: '11.11.2024', nextServiceDate: '11.05.2025', metrologyDate: '01.10.2024', nextMetrologyDate: '01.04.2025' },
-    'O016': { mo: 'Эндоскоп-116', serial: 'OLY-2024-116', inv: '3036116', location: 'Ижевск, Молодежная 95', category: 'Хирургическое', startDate: '12.09.2024', expirationDate: '12.09.2029', extensionDate: '12.09.2034', serviceDate: '18.11.2024', nextServiceDate: '18.05.2025', metrologyDate: '08.10.2024', nextMetrologyDate: '08.04.2025' },
-    'O017': { mo: 'Эндоскоп-117', serial: 'STR-2024-117', inv: '3036117', location: 'Ижевск, Ленина 15', category: 'Хирургическое', startDate: '20.09.2024', expirationDate: '20.09.2029', extensionDate: '20.09.2034', serviceDate: '25.11.2024', nextServiceDate: '25.05.2025', metrologyDate: '15.10.2024', nextMetrologyDate: '15.04.2025' },
-    'O018': { mo: 'Эндоскоп-118', serial: 'OLY-2024-118', inv: '3036118', location: 'Ижевск, Пушкинская 232', category: 'Хирургическое', startDate: '28.09.2024', expirationDate: '28.09.2029', extensionDate: '28.09.2034', serviceDate: '03.12.2024', nextServiceDate: '03.06.2025', metrologyDate: '24.10.2024', nextMetrologyDate: '24.04.2025' },
-    'O019': { mo: 'Эндоскоп-119', serial: 'FUJ-2024-119', inv: '3036119', location: 'Ижевск, Пушкинская 232', category: 'Хирургическое', startDate: '05.10.2024', expirationDate: '05.10.2029', extensionDate: '05.10.2034', serviceDate: '11.12.2024', nextServiceDate: '11.06.2025', metrologyDate: '01.11.2024', nextMetrologyDate: '01.05.2025' },
-    'O020': { mo: 'Эндоскоп-120', serial: 'OLY-2024-120', inv: '3036120', location: 'Ижевск, Удмуртская 255', category: 'Хирургическое', startDate: '12.10.2024', expirationDate: '12.10.2029', extensionDate: '12.10.2034', serviceDate: '18.12.2024', nextServiceDate: '18.06.2025', metrologyDate: '08.11.2024', nextMetrologyDate: '08.05.2025' }
+    'O001': { mo: 'Эндоскоп-101', serial: 'OLY-2024-101', inv: '3036101', location: 'Ижевск, Ленина 15', category: 'Хирургическое', registration: 'РУ №2024/33001', startDate: '12.01.2024', expirationDate: '12.01.2029', extensionDate: '12.01.2034', serviceDate: '18.03.2024', nextServiceDate: '18.09.2024', metrologyDate: '05.02.2024', nextMetrologyDate: '-' },
+    'O002': { mo: 'УЗИ-201', serial: 'GE-2024-201', inv: '3036201', location: 'Ижевск, Ленина 15', category: 'Диагностическое', registration: 'РУ №2024/33002', startDate: '20.02.2024', expirationDate: '20.02.2029', extensionDate: '20.02.2034', serviceDate: '25.04.2024', nextServiceDate: '25.10.2024', metrologyDate: '15.03.2024', nextMetrologyDate: '22.04.2027' },
+    'O003': { mo: 'Эндоскоп-103', serial: 'OLY-2024-103', inv: '3036103', location: 'Ижевск, Удмуртская 255', category: 'Хирургическое', registration: 'РУ №2024/33003', startDate: '05.03.2024', expirationDate: '05.03.2029', extensionDate: '05.03.2034', serviceDate: '10.05.2024', nextServiceDate: '10.11.2024', metrologyDate: '01.04.2024', nextMetrologyDate: '-' },
+    'O004': { mo: 'ЭКГ-301', serial: 'SCH-2024-301', inv: '3036301', location: 'Ижевск, Удмуртская 255', category: 'Диагностическое', startDate: '18.03.2024', expirationDate: '18.03.2029', extensionDate: '18.03.2034', serviceDate: '23.06.2024', nextServiceDate: '23.12.2024', metrologyDate: '14.04.2024', nextMetrologyDate: '-' },
+    'O005': { mo: 'Эндоскоп-105', serial: 'OLY-2024-105', inv: '3036105', location: 'Ижевск, Пушкинская 228', category: 'Хирургическое', registration: 'РУ №2024/33005', startDate: '10.04.2024', expirationDate: '10.04.2029', extensionDate: '10.04.2034', serviceDate: '15.06.2024', nextServiceDate: '15.12.2024', metrologyDate: '05.05.2024', nextMetrologyDate: '-' },
+    'O006': { mo: 'УЗИ-202', serial: 'PHI-2024-202', inv: '3036202', location: 'Ижевск, Пушкинская 228', category: 'Диагностическое', startDate: '25.04.2024', expirationDate: '25.04.2029', extensionDate: '25.04.2034', serviceDate: '30.06.2024', nextServiceDate: '30.12.2024', metrologyDate: '21.05.2024', nextMetrologyDate: '28.06.2025' },
+    'O007': { mo: 'Эндоскоп-107', serial: 'FUJ-2024-107', inv: '3036107', location: 'Ижевск, Карла Маркса 120', category: 'Хирургическое', startDate: '12.05.2024', expirationDate: '12.05.2029', extensionDate: '12.05.2034', serviceDate: '18.07.2024', nextServiceDate: '18.01.2025', metrologyDate: '08.06.2024', nextMetrologyDate: '-' },
+    'O008': { mo: 'ЭКГ-302', serial: 'WEL-2024-302', inv: '3036302', location: 'Ижевск, Карла Маркса 120', category: 'Диагностическое', startDate: '20.05.2024', expirationDate: '20.05.2029', extensionDate: '20.05.2034', serviceDate: '25.07.2024', nextServiceDate: '25.01.2025', metrologyDate: '15.06.2024', nextMetrologyDate: '22.07.2027' },
+    'O009': { mo: 'Эндоскоп-109', serial: 'STR-2024-109', inv: '3036109', location: 'Ижевск, Первомайская 85', category: 'Хирургическое', startDate: '05.06.2024', expirationDate: '05.06.2029', extensionDate: '05.06.2034', serviceDate: '10.08.2024', nextServiceDate: '10.02.2025', metrologyDate: '01.07.2024', nextMetrologyDate: '08.08.2025' },
+    'O010': { mo: 'УЗИ-203', serial: 'SIU-2024-203', inv: '3036203', location: 'Ижевск, Первомайская 85', category: 'Диагностическое', startDate: '18.06.2024', expirationDate: '18.06.2029', extensionDate: '18.06.2034', serviceDate: '24.08.2024', nextServiceDate: '24.02.2025', metrologyDate: '14.07.2024', nextMetrologyDate: '-' },
+    'O011': { mo: 'Эндоскоп-111', serial: 'FUJ-2024-111', inv: '3036111', location: 'Ижевск, Советская 45', category: 'Хирургическое', startDate: '10.07.2024', expirationDate: '10.07.2029', extensionDate: '10.07.2034', serviceDate: '15.09.2024', nextServiceDate: '15.03.2025', metrologyDate: '05.08.2024', nextMetrologyDate: '-' },
+    'O012': { mo: 'ЭКГ-303', serial: 'CAR-2024-303', inv: '3036303', location: 'Ижевск, Советская 45', category: 'Диагностическое', startDate: '25.07.2024', expirationDate: '25.07.2029', extensionDate: '25.07.2034', serviceDate: '30.09.2024', nextServiceDate: '30.03.2025', metrologyDate: '21.08.2024', nextMetrologyDate: '-' },
+    'O013': { mo: 'Эндоскоп-113', serial: 'STR-2024-113', inv: '3036113', location: 'Ижевск, Коммунаров 180', category: 'Хирургическое', startDate: '12.08.2024', expirationDate: '12.08.2029', extensionDate: '12.08.2034', serviceDate: '18.10.2024', nextServiceDate: '18.04.2025', metrologyDate: '08.09.2024', nextMetrologyDate: '15.10.2026' },
+    'O014': { mo: 'УЗИ-204', serial: 'MED-2024-204', inv: '3036204', location: 'Ижевск, Коммунаров 180', category: 'Диагностическое', startDate: '20.08.2024', expirationDate: '20.08.2029', extensionDate: '20.08.2034', serviceDate: '25.10.2024', nextServiceDate: '25.04.2025', metrologyDate: '15.09.2024', nextMetrologyDate: '-' },
+    'O015': { mo: 'Эндоскоп-115', serial: 'FUJ-2024-115', inv: '3036115', location: 'Ижевск, Молодежная 95', category: 'Хирургическое', startDate: '05.09.2024', expirationDate: '05.09.2029', extensionDate: '05.09.2034', serviceDate: '11.11.2024', nextServiceDate: '11.05.2025', metrologyDate: '01.10.2024', nextMetrologyDate: '-' },
+    'O016': { mo: 'ЭКГ-304', serial: 'BIO-2024-304', inv: '3036304', location: 'Ижевск, Молодежная 95', category: 'Диагностическое', startDate: '12.09.2024', expirationDate: '12.09.2029', extensionDate: '12.09.2034', serviceDate: '18.11.2024', nextServiceDate: '18.05.2025', metrologyDate: '08.10.2024', nextMetrologyDate: '-' },
+    'O017': { mo: 'Эндоскоп-117', serial: 'STR-2024-117', inv: '3036117', location: 'Ижевск, Ленина 15', category: 'Хирургическое', startDate: '20.09.2024', expirationDate: '20.09.2029', extensionDate: '20.09.2034', serviceDate: '25.11.2024', nextServiceDate: '25.05.2025', metrologyDate: '15.10.2024', nextMetrologyDate: '-' },
+    'O018': { mo: 'УЗИ-205', serial: 'SON-2024-205', inv: '3036205', location: 'Ижевск, Пушкинская 232', category: 'Диагностическое', startDate: '28.09.2024', expirationDate: '28.09.2029', extensionDate: '28.09.2034', serviceDate: '03.12.2024', nextServiceDate: '03.06.2025', metrologyDate: '24.10.2024', nextMetrologyDate: '-' },
+    'O019': { mo: 'Эндоскоп-119', serial: 'FUJ-2024-119', inv: '3036119', location: 'Ижевск, Пушкинская 232', category: 'Хирургическое', startDate: '05.10.2024', expirationDate: '05.10.2029', extensionDate: '05.10.2034', serviceDate: '11.12.2024', nextServiceDate: '11.06.2025', metrologyDate: '01.11.2024', nextMetrologyDate: '-' },
+    'O020': { mo: 'ЭКГ-305', serial: 'MON-2024-305', inv: '3036305', location: 'Ижевск, Удмуртская 255', category: 'Диагностическое', startDate: '12.10.2024', expirationDate: '12.10.2029', extensionDate: '12.10.2034', serviceDate: '18.12.2024', nextServiceDate: '18.06.2025', metrologyDate: '08.11.2024', nextMetrologyDate: '-' }
 };
 
 // Данные для журнала нагрузки по датам

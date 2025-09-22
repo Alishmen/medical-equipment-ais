@@ -1,5 +1,79 @@
+// Функции для динамической генерации таблиц
+function generateEquipmentTable(tableId, dataObject) {
+    const tbody = document.getElementById(tableId);
+    if (!tbody) return;
+    
+    tbody.innerHTML = '';
+    
+    Object.keys(dataObject).forEach(key => {
+        const equipment = dataObject[key];
+        const row = document.createElement('tr');
+        
+        // Извлекаем больницу из location (первая часть до запятой)
+        const hospital = equipment.location.split(',')[0];
+        
+        // Извлекаем производителя из serial (первая часть до дефиса)
+        const manufacturer = equipment.serial.split('-')[0];
+        
+        // Определяем тип оборудования из mo (первая часть до дефиса)
+        const equipmentType = equipment.mo.split('-')[0];
+        
+        row.innerHTML = `
+            <td>${key}</td>
+            <td>${hospital}</td>
+            <td>${manufacturer}</td>
+            <td>${equipmentType}</td>
+            <td>${equipment.mo}</td>
+            <td>${equipment.nextMetrologyDate}</td>
+        `;
+        tbody.appendChild(row);
+    });
+}
+
+function initializeTables() {
+    // Генерируем таблицы из данных
+    generateEquipmentTable('equipmentTableBody', equipmentData);
+    generateEquipmentTable('lisEquipmentTableBody', lisEquipmentData);
+    generateEquipmentTable('otherEquipmentTableBody', otherEquipmentData);
+}
+
+// Функция для сортировки таблицы по дате поверки
+function sortTableByVerificationDate(tableId, dataObject) {
+    const tbody = document.getElementById(tableId);
+    if (!tbody) return;
+    
+    // Сортируем данные по дате поверки
+    const sortedEntries = Object.entries(dataObject).sort((a, b) => {
+        const dateA = a[1].nextMetrologyDate;
+        const dateB = b[1].nextMetrologyDate;
+        
+        // Если дата "-", ставим в конец
+        if (dateA === '-') return 1;
+        if (dateB === '-') return -1;
+        
+        // Парсим даты для сравнения
+        const parseDate = (dateStr) => {
+            const [day, month, year] = dateStr.split('.');
+            return new Date(year, month - 1, day);
+        };
+        
+        return parseDate(dateA) - parseDate(dateB);
+    });
+    
+    // Создаем новый объект с отсортированными данными
+    const sortedData = {};
+    sortedEntries.forEach(([key, value]) => {
+        sortedData[key] = value;
+    });
+    
+    // Перегенерируем таблицу с отсортированными данными
+    generateEquipmentTable(tableId, sortedData);
+}
+
 // Добавляем интерактивность
 document.addEventListener('DOMContentLoaded', function() {
+    // Инициализируем таблицы
+    initializeTables();
     // Переключение вкладок
     const tabButtons = document.querySelectorAll('.tab-button');
     const tabContents = document.querySelectorAll('.tab-content');
@@ -210,19 +284,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // Инициализация графиков
     initializeCharts();
     
-    // Обработка кнопки поиска по дате поверки
+    // Обработка кнопки сортировки по дате поверки для РИС
     document.getElementById('verificationSearchBtn').addEventListener('click', function() {
-        openVerificationSearch();
+        sortTableByVerificationDate('equipmentTableBody', equipmentData);
+        showNotification('Таблица РИС отсортирована по дате поверки (ближайшие даты вверху)');
     });
     
-    // Обработка кнопки поиска по дате поверки для ЛИС
+    // Обработка кнопки сортировки по дате поверки для ЛИС
     document.getElementById('lisVerificationSearchBtn').addEventListener('click', function() {
-        openLisVerificationSearch();
+        sortTableByVerificationDate('lisEquipmentTableBody', lisEquipmentData);
+        showNotification('Таблица ЛИС отсортирована по дате поверки (ближайшие даты вверху)');
     });
     
-    // Обработка кнопки поиска по дате поверки для Прочее
+    // Обработка кнопки сортировки по дате поверки для Прочее
     document.getElementById('otherVerificationSearchBtn').addEventListener('click', function() {
-        openOtherVerificationSearch();
+        sortTableByVerificationDate('otherEquipmentTableBody', otherEquipmentData);
+        showNotification('Таблица Прочее отсортирована по дате поверки (ближайшие даты вверху)');
     });
     
     // Закрытие модальных окон при клике вне их
@@ -242,10 +319,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (openModal) {
                 closeModal(openModal.id);
             }
-            const verificationModal = document.getElementById('verificationSearchModal');
-            if (verificationModal && verificationModal.style.display === 'flex') {
-                closeVerificationSearch();
-            }
+            // Модальное окно поиска поверки удалено - теперь используется сортировка
         }
     });
 });
@@ -681,88 +755,9 @@ function createMonthlyChart(year) {
     document.getElementById('totalMonthlyStudies').textContent = data.total.toLocaleString();
 }
 
-// Функции для поиска по дате поверки
-function openVerificationSearch() {
-    const modal = document.getElementById('verificationSearchModal');
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-    // Устанавливаем флаг для РИС (по умолчанию)
-    modal.setAttribute('data-table', 'ris');
-}
+// Старые функции поиска по дате поверки удалены - теперь используется сортировка
 
-function closeVerificationSearch() {
-    const modal = document.getElementById('verificationSearchModal');
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-function searchByVerificationDate() {
-    const dateInput = document.getElementById('verificationDateInput');
-    const searchDate = dateInput.value;
-    
-    if (!searchDate) {
-        showNotification('Пожалуйста, выберите дату для поиска');
-        return;
-    }
-    
-    // Конвертируем дату в формат DD.MM.YYYY для сравнения
-    const formattedSearchDate = formatDateForComparison(searchDate);
-    
-    // Определяем какая таблица активна
-    const modal = document.getElementById('verificationSearchModal');
-    const tableType = modal.getAttribute('data-table');
-    
-    let tableRows, tableName;
-    
-    if (tableType === 'lis') {
-        tableRows = document.querySelectorAll('#lisEquipmentTableBody tr');
-        tableName = 'ЛИС';
-    } else if (tableType === 'other') {
-        tableRows = document.querySelectorAll('#otherEquipmentTableBody tr');
-        tableName = 'Прочее';
-    } else {
-        // По умолчанию РИС
-        tableRows = document.querySelectorAll('#equipmentTableBody tr');
-        tableName = 'РИС';
-    }
-    
-    let foundCount = 0;
-    
-    tableRows.forEach(row => {
-        const verificationCell = row.cells[5]; // 6-я колонка (индекс 5)
-        if (verificationCell) {
-            const cellDate = verificationCell.textContent.trim();
-            
-            // Проверяем, совпадает ли дата
-            if (cellDate === formattedSearchDate) {
-                row.style.display = '';
-                row.style.backgroundColor = '#fff3cd'; // Подсвечиваем найденные строки
-                foundCount++;
-            } else {
-                row.style.display = 'none';
-                row.style.backgroundColor = '';
-            }
-        }
-    });
-    
-    // Показываем результат
-    if (foundCount > 0) {
-        showNotification(`Найдено ${foundCount} единиц оборудования ${tableName} с поверкой на ${formattedSearchDate}`);
-    } else {
-        showNotification(`Оборудование ${tableName} с поверкой на ${formattedSearchDate} не найдено`);
-    }
-    
-    closeVerificationSearch();
-}
-
-function formatDateForComparison(dateString) {
-    // Конвертируем из формата YYYY-MM-DD в DD.MM.YYYY
-    const date = new Date(dateString);
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const year = date.getFullYear();
-    return `${day}.${month}.${year}`;
-}
+// Функции поиска по дате поверки удалены - теперь используется сортировка
 
 function resetTableFilter() {
     // Сбрасываем фильтр и показываем все строки
@@ -774,38 +769,4 @@ function resetTableFilter() {
     showNotification('Фильтр сброшен, показаны все записи');
 }
 
-// Функции для поиска по дате поверки ЛИС
-function openLisVerificationSearch() {
-    const modal = document.getElementById('verificationSearchModal');
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-    // Устанавливаем флаг для ЛИС
-    modal.setAttribute('data-table', 'lis');
-}
-
-function resetLisTableFilter() {
-    const tableRows = document.querySelectorAll('#lisEquipmentTableBody tr');
-    tableRows.forEach(row => {
-        row.style.display = '';
-        row.style.backgroundColor = '';
-    });
-    showNotification('Фильтр ЛИС сброшен, показаны все записи');
-}
-
-// Функции для поиска по дате поверки Прочее
-function openOtherVerificationSearch() {
-    const modal = document.getElementById('verificationSearchModal');
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-    // Устанавливаем флаг для Прочее
-    modal.setAttribute('data-table', 'other');
-}
-
-function resetOtherTableFilter() {
-    const tableRows = document.querySelectorAll('#otherEquipmentTableBody tr');
-    tableRows.forEach(row => {
-        row.style.display = '';
-        row.style.backgroundColor = '';
-    });
-    showNotification('Фильтр Прочее сброшен, показаны все записи');
-}
+// Функции поиска по дате поверки для ЛИС и Прочее удалены - теперь используется сортировка

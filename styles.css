@@ -49,43 +49,192 @@ body {
 
 .tabs {
     display: flex;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-bottom: 2px solid #e3f2fd;
+    background: #ffffff;
+    border-bottom: 1px solid #e9ecef;
+    position: relative;
+}
+
+.tabs::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e3f2fd, transparent);
 }
 
 .tab-button {
     flex: 1;
-    padding: 20px 30px;
+    padding: 24px 32px;
     background: transparent;
     border: none;
     color: #495057;
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
-    border-bottom: 3px solid transparent;
+    border-bottom: 2px solid transparent;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    overflow: hidden;
+}
+
+.tab-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: -1;
+}
+
+.tab-button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #1976d2;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
 }
 
 .tab-button:hover {
-    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
     color: #1976d2;
+    transform: translateY(-1px);
+}
+
+.tab-button:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tab-button:hover::after {
+    width: 60%;
 }
 
 .tab-button.active {
-    background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
-    color: white;
+    color: #1976d2;
+    font-weight: 600;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
     border-bottom-color: #1976d2;
 }
 
+.tab-button.active::before {
+    opacity: 1;
+    transform: translateY(0);
+    background: linear-gradient(135deg, #e3f2fd 0%, #f8f9fa 100%);
+    box-shadow: inset 0 1px 3px rgba(25, 118, 210, 0.1);
+}
+
 .tab-button.active::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: #1976d2;
+    width: 80%;
+}
+
+/* Эффект при клике */
+.tab-button:active {
+    transform: translateY(0);
+    transition: transform 0.1s ease;
+}
+
+/* Микро-анимация для текста */
+.tab-button span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.tab-button:hover span {
+    transform: translateY(-1px);
+}
+
+.tab-button.active span {
+    transform: translateY(-1px);
+}
+
+/* Эффект волны при клике */
+.tab-button {
+    position: relative;
+}
+
+.tab-button:active::before {
+    background: radial-gradient(circle, rgba(25, 118, 210, 0.1) 0%, transparent 70%);
+    transform: scale(2);
+    opacity: 0.3;
+    transition: all 0.2s ease;
+}
+
+/* Эффект свечения для активной вкладки */
+.tab-button.active {
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.15);
+}
+
+/* Анимация появления контента */
+.tab-content {
+    animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Эффект разделителя между вкладками */
+.tab-button:not(:last-child) {
+    border-right: 1px solid #e9ecef;
+}
+
+.tab-button:hover:not(:last-child) {
+    border-right-color: transparent;
+    transition: border-right-color 0.3s ease;
+}
+
+/* Микро-анимация для улучшения отзывчивости */
+.tab-button {
+    will-change: transform, color;
+}
+
+.tab-button:hover {
+    will-change: transform, color, background;
+}
+
+/* Эффект фокуса для доступности */
+.tab-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.3);
+}
+
+.tab-button:focus:not(:active) {
+    transform: translateY(-1px);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .tab-button {
+        padding: 20px 24px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tab-button {
+        padding: 16px 20px;
+        font-size: 0.9rem;
+        letter-spacing: 0.3px;
+    }
 }
 
 .tab-content {
@@ -286,67 +435,7 @@ body {
     transform: scale(0.95);
 }
 
-/* Стили для модального окна поиска поверки */
-.verification-search-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.verification-search-content {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    min-width: 300px;
-    max-width: 500px;
-}
-
-.verification-search-content h3 {
-    margin: 0 0 15px 0;
-    color: #1976d2;
-    font-size: 1.2rem;
-}
-
-.verification-search-content input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    font-size: 1rem;
-}
-
-.verification-search-content .search-buttons {
-    display: flex;
-    gap: 10px;
-    justify-content: flex-end;
-}
-
-.verification-search-content button {
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9rem;
-}
-
-.verification-search-content .search-btn-primary {
-    background: #1976d2;
-    color: white;
-}
-
-.verification-search-content .search-btn-secondary {
-    background: #6c757d;
-    color: white;
-}
+/* Стили для модального окна поиска поверки удалены - теперь используется сортировка */
 
 /* Стили для кнопки сброса фильтра */
 .reset-btn {
