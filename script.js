@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Обработка кликов по строкам таблицы оборудования
-    const equipmentRows = document.querySelectorAll('.equipment-table tbody tr');
+    // Обработка кликов по строкам таблицы оборудования (РИС)
+    const equipmentRows = document.querySelectorAll('#equipmentTableBody tr');
     const noSelection = document.getElementById('noSelection');
     const equipmentPassport = document.getElementById('equipmentPassport');
     
@@ -143,6 +143,57 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     document.getElementById('lisMaterialsBtn').addEventListener('click', function() {
+        openModal('materialsModal');
+    });
+
+    // Обработка кликов по строкам таблицы Прочее (эндоскопы)
+    const otherEquipmentRows = document.querySelectorAll('#otherEquipmentTableBody tr');
+    const otherNoSelection = document.getElementById('otherNoSelection');
+    const otherEquipmentPassport = document.getElementById('otherEquipmentPassport');
+    
+    otherEquipmentRows.forEach(row => {
+        row.addEventListener('click', function() {
+            // Убираем выделение с других строк
+            otherEquipmentRows.forEach(r => r.classList.remove('selected'));
+            // Выделяем текущую строку
+            this.classList.add('selected');
+            
+            // Получаем номер оборудования из первой ячейки
+            const equipmentNumber = this.cells[0].textContent;
+            const data = otherEquipmentData[equipmentNumber];
+            
+            if (data) {
+                // Заполняем паспорт данными
+                document.getElementById('otherEquipmentMO').textContent = data.mo;
+                document.getElementById('otherEquipmentSerial').textContent = data.serial;
+                document.getElementById('otherEquipmentInv').textContent = data.inv;
+                document.getElementById('otherEquipmentLocation').textContent = data.location;
+                document.getElementById('otherEquipmentCategory').textContent = data.category;
+                document.getElementById('otherEquipmentRegistration').textContent = data.registration || '-';
+                document.getElementById('otherEquipmentStartDate').textContent = data.startDate;
+                document.getElementById('otherEquipmentExpirationDate').textContent = data.expirationDate;
+                document.getElementById('otherEquipmentExtensionDate').textContent = data.extensionDate;
+                document.getElementById('otherEquipmentServiceDate').textContent = data.serviceDate;
+                document.getElementById('otherEquipmentNextServiceDate').textContent = data.nextServiceDate;
+                document.getElementById('otherEquipmentMetrologyDate').textContent = data.metrologyDate;
+                document.getElementById('otherEquipmentNextMetrologyDate').textContent = data.nextMetrologyDate;
+                
+                // Показываем паспорт и скрываем заглушку
+                otherNoSelection.style.display = 'none';
+                otherEquipmentPassport.style.display = 'flex';
+                
+                // Показываем уведомление
+                showNotification(`Выбрано оборудование: ${data.mo}`);
+            }
+        });
+    });
+    
+    // Обработка кнопок в паспорте Прочее
+    document.getElementById('otherJournalBtn').addEventListener('click', function() {
+        openModal('journalModal');
+    });
+    
+    document.getElementById('otherMaterialsBtn').addEventListener('click', function() {
         openModal('materialsModal');
     });
     
