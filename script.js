@@ -68,6 +68,181 @@ function sortTableByVerificationDate(tableId, dataObject) {
     
     // Перегенерируем таблицу с отсортированными данными
     generateEquipmentTable(tableId, sortedData);
+    
+    // Перепривязываем обработчики событий после сортировки
+    rebindTableEventHandlers(tableId);
+}
+
+// Функция для перепривязки обработчиков событий после сортировки
+function rebindTableEventHandlers(tableId) {
+    console.log('Перепривязываем обработчики для таблицы:', tableId);
+    
+    if (tableId === 'equipmentTableBody') {
+        // РИС таблица
+        const noSelection = document.getElementById('noSelection');
+        const equipmentPassport = document.getElementById('equipmentPassport');
+        
+        // Получаем свежие ссылки на строки после сортировки
+        const equipmentRows = document.querySelectorAll('#equipmentTableBody tr');
+        console.log('Найдено строк РИС:', equipmentRows.length);
+        
+        equipmentRows.forEach(row => {
+            row.addEventListener('click', function() {
+                console.log('Клик по строке РИС:', this.cells[0].textContent);
+                
+                // Получаем свежие ссылки на все строки для снятия выделения
+                const allRows = document.querySelectorAll('#equipmentTableBody tr');
+                allRows.forEach(r => r.classList.remove('selected'));
+                
+                // Выделяем текущую строку
+                this.classList.add('selected');
+                
+                // Получаем данные из первой ячейки (ID оборудования)
+                const equipmentId = this.cells[0].textContent.trim();
+                console.log('ID оборудования:', equipmentId);
+                
+                // Скрываем сообщение "Выберите оборудование"
+                noSelection.style.display = 'none';
+                // Показываем паспорт
+                equipmentPassport.style.display = 'block';
+                
+                // Заполняем паспорт данными
+                if (equipmentData[equipmentId]) {
+                    const equipment = equipmentData[equipmentId];
+                    console.log('Данные оборудования:', equipment);
+                    
+                    // Используем правильные ID элементов из HTML
+                    document.getElementById('equipmentMO').textContent = equipment.mo;
+                    document.getElementById('equipmentSerial').textContent = equipment.serial;
+                    document.getElementById('equipmentInv').textContent = equipment.inv;
+                    document.getElementById('equipmentLocation').textContent = equipment.location;
+                    document.getElementById('equipmentCategory').textContent = equipment.category;
+                    document.getElementById('equipmentRegistration').textContent = equipment.registration || 'Не указано';
+                    document.getElementById('equipmentStartDate').textContent = equipment.startDate;
+                    document.getElementById('equipmentExpirationDate').textContent = equipment.expirationDate;
+                    document.getElementById('equipmentExtensionDate').textContent = equipment.extensionDate;
+                    document.getElementById('equipmentServiceDate').textContent = equipment.serviceDate;
+                    document.getElementById('equipmentNextServiceDate').textContent = equipment.nextServiceDate;
+                    document.getElementById('equipmentMetrologyDate').textContent = equipment.metrologyDate;
+                    document.getElementById('equipmentNextMetrologyDate').textContent = equipment.nextMetrologyDate;
+                    
+                    console.log('Паспорт РИС обновлен');
+                } else {
+                    console.log('Оборудование не найдено в данных:', equipmentId);
+                }
+            });
+        });
+    } else if (tableId === 'lisEquipmentTableBody') {
+        // ЛИС таблица
+        const lisNoSelection = document.getElementById('lisNoSelection');
+        const lisEquipmentPassport = document.getElementById('lisEquipmentPassport');
+        
+        // Получаем свежие ссылки на строки после сортировки
+        const lisEquipmentRows = document.querySelectorAll('#lisEquipmentTableBody tr');
+        console.log('Найдено строк ЛИС:', lisEquipmentRows.length);
+        
+        lisEquipmentRows.forEach(row => {
+            row.addEventListener('click', function() {
+                console.log('Клик по строке ЛИС:', this.cells[0].textContent);
+                
+                // Получаем свежие ссылки на все строки для снятия выделения
+                const allRows = document.querySelectorAll('#lisEquipmentTableBody tr');
+                allRows.forEach(r => r.classList.remove('selected'));
+                
+                // Выделяем текущую строку
+                this.classList.add('selected');
+                
+                // Получаем данные из первой ячейки (ID оборудования)
+                const equipmentId = this.cells[0].textContent.trim();
+                console.log('ID оборудования ЛИС:', equipmentId);
+                
+                // Скрываем сообщение "Выберите оборудование"
+                lisNoSelection.style.display = 'none';
+                // Показываем паспорт
+                lisEquipmentPassport.style.display = 'block';
+                
+                // Заполняем паспорт данными
+                if (lisEquipmentData[equipmentId]) {
+                    const equipment = lisEquipmentData[equipmentId];
+                    console.log('Данные оборудования ЛИС:', equipment);
+                    
+                    // Используем правильные ID элементов из HTML
+                    document.getElementById('lisEquipmentMO').textContent = equipment.mo;
+                    document.getElementById('lisEquipmentSerial').textContent = equipment.serial;
+                    document.getElementById('lisEquipmentInv').textContent = equipment.inv;
+                    document.getElementById('lisEquipmentLocation').textContent = equipment.location;
+                    document.getElementById('lisEquipmentCategory').textContent = equipment.category;
+                    document.getElementById('lisEquipmentRegistration').textContent = equipment.registration || 'Не указано';
+                    document.getElementById('lisEquipmentStartDate').textContent = equipment.startDate;
+                    document.getElementById('lisEquipmentExpirationDate').textContent = equipment.expirationDate;
+                    document.getElementById('lisEquipmentExtensionDate').textContent = equipment.extensionDate;
+                    document.getElementById('lisEquipmentServiceDate').textContent = equipment.serviceDate;
+                    document.getElementById('lisEquipmentNextServiceDate').textContent = equipment.nextServiceDate;
+                    document.getElementById('lisEquipmentMetrologyDate').textContent = equipment.metrologyDate;
+                    document.getElementById('lisEquipmentNextMetrologyDate').textContent = equipment.nextMetrologyDate;
+                    
+                    console.log('Паспорт ЛИС обновлен');
+                } else {
+                    console.log('Оборудование ЛИС не найдено в данных:', equipmentId);
+                }
+            });
+        });
+    } else if (tableId === 'otherEquipmentTableBody') {
+        // Прочее таблица
+        const otherNoSelection = document.getElementById('otherNoSelection');
+        const otherEquipmentPassport = document.getElementById('otherEquipmentPassport');
+        
+        // Получаем свежие ссылки на строки после сортировки
+        const otherEquipmentRows = document.querySelectorAll('#otherEquipmentTableBody tr');
+        console.log('Найдено строк Прочее:', otherEquipmentRows.length);
+        
+        otherEquipmentRows.forEach(row => {
+            row.addEventListener('click', function() {
+                console.log('Клик по строке Прочее:', this.cells[0].textContent);
+                
+                // Получаем свежие ссылки на все строки для снятия выделения
+                const allRows = document.querySelectorAll('#otherEquipmentTableBody tr');
+                allRows.forEach(r => r.classList.remove('selected'));
+                
+                // Выделяем текущую строку
+                this.classList.add('selected');
+                
+                // Получаем данные из первой ячейки (ID оборудования)
+                const equipmentId = this.cells[0].textContent.trim();
+                console.log('ID оборудования Прочее:', equipmentId);
+                
+                // Скрываем сообщение "Выберите оборудование"
+                otherNoSelection.style.display = 'none';
+                // Показываем паспорт
+                otherEquipmentPassport.style.display = 'block';
+                
+                // Заполняем паспорт данными
+                if (otherEquipmentData[equipmentId]) {
+                    const equipment = otherEquipmentData[equipmentId];
+                    console.log('Данные оборудования Прочее:', equipment);
+                    
+                    // Используем правильные ID элементов из HTML
+                    document.getElementById('otherEquipmentMO').textContent = equipment.mo;
+                    document.getElementById('otherEquipmentSerial').textContent = equipment.serial;
+                    document.getElementById('otherEquipmentInv').textContent = equipment.inv;
+                    document.getElementById('otherEquipmentLocation').textContent = equipment.location;
+                    document.getElementById('otherEquipmentCategory').textContent = equipment.category;
+                    document.getElementById('otherEquipmentRegistration').textContent = equipment.registration || 'Не указано';
+                    document.getElementById('otherEquipmentStartDate').textContent = equipment.startDate;
+                    document.getElementById('otherEquipmentExpirationDate').textContent = equipment.expirationDate;
+                    document.getElementById('otherEquipmentExtensionDate').textContent = equipment.extensionDate;
+                    document.getElementById('otherEquipmentServiceDate').textContent = equipment.serviceDate;
+                    document.getElementById('otherEquipmentNextServiceDate').textContent = equipment.nextServiceDate;
+                    document.getElementById('otherEquipmentMetrologyDate').textContent = equipment.metrologyDate;
+                    document.getElementById('otherEquipmentNextMetrologyDate').textContent = equipment.nextMetrologyDate;
+                    
+                    console.log('Паспорт Прочее обновлен');
+                } else {
+                    console.log('Оборудование Прочее не найдено в данных:', equipmentId);
+                }
+            });
+        });
+    }
 }
 
 // Добавляем интерактивность
